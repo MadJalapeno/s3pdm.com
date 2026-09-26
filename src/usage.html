@@ -1,0 +1,177 @@
+---
+layout: base.njk
+title: Usage Guide - S3PDM
+---
+
+<!-- Header -->
+<div class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+  <div class="max-w-4xl mx-auto px-6">
+    <a href="/" class="text-blue-400 hover:text-blue-300 mb-4 inline-block">← Back to Home</a>
+    <h1 class="text-5xl font-bold">Usage Guide</h1>
+    <p class="text-xl text-slate-300 mt-4">Get started with s3pdm in minutes</p>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="bg-white py-16">
+  <div class="max-w-4xl mx-auto px-6">
+
+    <!-- Installation -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 text-slate-900">1. Installation & Setup</h2>
+
+      <div class="bg-slate-50 p-8 rounded-lg mb-6">
+        <h3 class="text-xl font-bold mb-4">Get the Application</h3>
+        <p class="text-gray-700 mb-4">Download the latest release from the <a href="https://github.com/MadJalapeno/s3pdm.com/releases" target="_blank" class="text-blue-600 hover:underline">GitHub Releases page</a>.</p>
+      </div>
+
+      <div class="bg-slate-50 p-8 rounded-lg">
+        <h3 class="text-xl font-bold mb-4">Configure Cloud Storage</h3>
+        <ol class="list-decimal list-inside space-y-3 text-gray-700">
+          <li>Create an account with <strong>Backblaze B2</strong>, <strong>AWS S3</strong>, or another S3-compatible provider</li>
+          <li>Create a new bucket for your vault</li>
+          <li>Generate API credentials (Access Key and Secret Key)</li>
+          <li>Open s3pdm Settings and enter your credentials</li>
+          <li>Point the vault folder to where your SOLIDWORKS projects are stored</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Basic Workflow -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 text-slate-900">2. Basic Workflow</h2>
+
+      <div class="space-y-6">
+        <div class="border-l-4 border-blue-600 pl-6">
+          <h3 class="text-xl font-bold mb-3">Check In Files</h3>
+          <p class="text-gray-700">Select files or folders in the Files tab and click <strong>Check In</strong>. Your changes are uploaded to cloud storage with full version history.</p>
+        </div>
+
+        <div class="border-l-4 border-blue-600 pl-6">
+          <h3 class="text-xl font-bold mb-3">Refresh</h3>
+          <p class="text-gray-700">Click <strong>Refresh</strong> to sync with the vault. See which files have changed, been added, or are untracked. The first refresh builds a local cache; subsequent refreshes are much faster.</p>
+        </div>
+
+        <div class="border-l-4 border-blue-600 pl-6">
+          <h3 class="text-xl font-bold mb-3">View History</h3>
+          <p class="text-gray-700">Open the Log tab to see every check-in, rename, untrack, and restore operation. Click any version to restore it.</p>
+        </div>
+
+        <div class="border-l-4 border-blue-600 pl-6">
+          <h3 class="text-xl font-bold mb-3">Restore Versions</h3>
+          <p class="text-gray-700">Right-click a file and select <strong>Restore</strong>, or use the Log tab to restore any previous version. The file will be downloaded and overwrite your local copy.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- File Management -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 text-slate-900">3. File Management</h2>
+
+      <div class="space-y-6">
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-3">Bulk Operations</h3>
+          <p class="text-gray-700 mb-4">Select an entire folder in the folder tree and click <strong>Check In Selected</strong> to check in all modified files at once, including nested folders.</p>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-3">Rename or Move Files</h3>
+          <p class="text-gray-700 mb-4">Right-click a file or folder and select <strong>Rename</strong>. Enter the new path (relative to your vault). s3pdm handles:</p>
+          <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
+            <li>Files you already renamed in SOLIDWORKS (Pack & Go, rename operations)</li>
+            <li>Files not yet moved on disk</li>
+            <li>Entire folders with all contents inside</li>
+          </ul>
+          <p class="text-gray-700 mt-4">In all cases, full history is preserved and linked to the new location.</p>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold mb-3">Untrack Files</h3>
+          <p class="text-gray-700 mb-4">Right-click a file or folder and select <strong>Untrack</strong>. Optionally delete local copies.</p>
+          <p class="text-gray-700">The file is removed from tracking but its history is archived safely in the cloud—nothing is ever truly lost.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- File Tree & Status -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 text-slate-900">4. Understanding the File Tree</h2>
+
+      <div class="bg-slate-50 p-8 rounded-lg">
+        <p class="text-gray-700 mb-6">The <strong>Files</strong> tab shows a collapsible folder tree with useful information:</p>
+
+        <ul class="space-y-4 text-gray-700">
+          <li><strong>Folder Status:</strong> Shows summary like "2 modified, 1 untracked" directly on the folder</li>
+          <li><strong>Colors:</strong> Folders are colored by the most important status inside (e.g., red for modifications, orange for untracked)</li>
+          <li><strong>File Sizes:</strong> See individual file sizes and total folder sizes</li>
+          <li><strong>Expand/Collapse:</strong> The tree remembers which folders you had open between refreshes</li>
+          <li><strong>Right-Click Menu:</strong> Access Check In, Rename, Untrack, Open (in SOLIDWORKS), and Show in Folder</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Best Practices -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 text-slate-900">5. Best Practices</h2>
+
+      <div class="space-y-4 text-gray-700">
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded">
+          <p><strong>Check in regularly.</strong> After each design iteration or major change, check in your files. This builds a detailed history you can restore from.</p>
+        </div>
+
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded">
+          <p><strong>Use meaningful folder structures.</strong> Organize your projects by client, product, or phase. The folder tree makes bulk operations easy.</p>
+        </div>
+
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded">
+          <p><strong>Rename in SOLIDWORKS first.</strong> If you rename or use Pack & Go in SOLIDWORKS, then use the Rename feature to link the history. This keeps assembly references intact.</p>
+        </div>
+
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded">
+          <p><strong>Enable Object Lock (optional).</strong> On Backblaze, enable Object Lock to make check-ins immutable. This provides extra protection against accidental deletes.</p>
+        </div>
+
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded">
+          <p><strong>One machine at a time.</strong> s3pdm is designed for solo users working from one machine. Concurrent edits from multiple machines aren't protected.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tips & Troubleshooting -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-6 text-slate-900">6. Tips & Troubleshooting</h2>
+
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-xl font-bold mb-3 text-slate-900">Slow Refresh?</h3>
+          <p class="text-gray-700">The first refresh downloads history to build a local cache. Subsequent refreshes only fetch changes and are much faster. If you need to rebuild, use <strong>More → Reload History from Bucket</strong>.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-3 text-slate-900">Large Files (>5 GB)?</h3>
+          <p class="text-gray-700">s3pdm uses multipart uploads for files larger than 5 GB. Most SOLIDWORKS files are well under this limit, but if you hit it, check the error log for details.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-3 text-slate-900">Restore Needs Space</h3>
+          <p class="text-gray-700">When restoring a file, s3pdm downloads it to a temporary location next to the destination. You'll need free disk space equal to the file size.</p>
+        </div>
+
+        <div>
+          <h3 class="text-xl font-bold mb-3 text-slate-900">Need Help?</h3>
+          <p class="text-gray-700">Check the error.log file in the application folder, or open an issue on <a href="https://github.com/MadJalapeno/s3pdm.com/issues" target="_blank" class="text-blue-600 hover:underline">GitHub Issues</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8 rounded-lg text-center">
+      <h2 class="text-2xl font-bold mb-4">Ready to Start?</h2>
+      <p class="mb-6">Download s3pdm from GitHub and set up your first vault today.</p>
+      <a href="https://github.com/MadJalapeno/s3pdm.com" target="_blank" class="bg-white text-blue-600 hover:bg-slate-100 px-8 py-3 rounded-lg font-semibold transition inline-block">
+        Go to GitHub
+      </a>
+    </div>
+
+  </div>
+</div>

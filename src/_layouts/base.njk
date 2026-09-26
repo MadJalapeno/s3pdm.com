@@ -7,6 +7,31 @@
   <link rel="stylesheet" href="/assets/css/tailwind.css">
 </head>
 <body class="bg-white text-gray-900">
+  <!-- Navigation -->
+  <nav class="bg-slate-900 text-white sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="/" class="font-bold text-xl">s3pdm</a>
+      <div class="flex gap-8">
+        <a href="/" class="hover:text-blue-400 transition">Home</a>
+        <a href="/usage" class="hover:text-blue-400 transition">Usage</a>
+        <a href="/screenshots" class="hover:text-blue-400 transition">Screenshots</a>
+        <a href="https://github.com/MadJalapeno/s3pdm.com" target="_blank" class="hover:text-blue-400 transition">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
   {{ content | safe }}
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-white py-12">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+      <p class="text-slate-400 mb-4">s3pdm — Personal PDM for SOLIDWORKS</p>
+      <div class="flex gap-6 justify-center mb-6">
+        <a href="https://github.com/MadJalapeno/s3pdm.com" target="_blank" class="text-slate-300 hover:text-blue-400 transition">GitHub Repository</a>
+        <a href="https://github.com/MadJalapeno/s3pdm.com/issues" target="_blank" class="text-slate-300 hover:text-blue-400 transition">Report Issue</a>
+      </div>
+      <p class="text-slate-500 text-sm">© 2024 s3pdm. Cloud storage alternative to expensive PDM systems.</p>
+    </div>
+  </footer>
 </body>
 </html>
