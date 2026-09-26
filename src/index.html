@@ -1,11 +1,139 @@
 ---
 layout: base.njk
-title: S3PDM
+title: S3PDM - Personal PDM for SOLIDWORKS
 ---
 
-<div class="min-h-screen flex items-center justify-center">
-  <div class="text-center">
-    <h1 class="text-5xl font-bold mb-4">Welcome</h1>
-    <p class="text-xl text-gray-600">Your single page site</p>
+<!-- Hero Section -->
+<div class="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white flex items-center">
+  <div class="max-w-6xl mx-auto px-6 py-20 w-full">
+    <h1 class="text-6xl font-bold mb-6">s3pdm</h1>
+    <p class="text-2xl text-slate-300 mb-8 max-w-2xl">Enterprise PDM features for solo SOLIDWORKS users. Version control, file history, and folder management—backed by affordable cloud storage.</p>
+    <div class="flex gap-4">
+      <a href="#features" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition">Learn More</a>
+      <a href="#system" class="bg-slate-700 hover:bg-slate-600 px-8 py-3 rounded-lg font-semibold transition">System Details</a>
+    </div>
+  </div>
+</div>
+
+<!-- Features Section -->
+<div id="features" class="bg-white py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-16 text-center">Key Features</h2>
+
+    <div class="grid md:grid-cols-2 gap-12 mb-16">
+      <div class="border-l-4 border-blue-600 pl-6">
+        <h3 class="text-2xl font-bold mb-3">Folder Tree with Sizes</h3>
+        <p class="text-gray-700">Browse your vault with a collapsible folder tree. See total folder sizes, modification status, and untracked files at a glance.</p>
+      </div>
+
+      <div class="border-l-4 border-blue-600 pl-6">
+        <h3 class="text-2xl font-bold mb-3">Bulk Operations</h3>
+        <p class="text-gray-700">Select entire folders and check in everything changed inside at once. No more file-by-file management.</p>
+      </div>
+
+      <div class="border-l-4 border-blue-600 pl-6">
+        <h3 class="text-2xl font-bold mb-3">Smart Rename & Move</h3>
+        <p class="text-gray-700">Rename and move files or folders while preserving full history. Works seamlessly with SOLIDWORKS renames and Pack & Go.</p>
+      </div>
+
+      <div class="border-l-4 border-blue-600 pl-6">
+        <h3 class="text-2xl font-bold mb-3">File History & Untrack</h3>
+        <p class="text-gray-700">Full version history for every file. Untrack files safely—history is archived, never truly deleted.</p>
+      </div>
+
+      <div class="border-l-4 border-blue-600 pl-6">
+        <h3 class="text-2xl font-bold mb-3">Local Cache</h3>
+        <p class="text-gray-700">First refresh downloads history once. Subsequent refreshes only fetch changes—fast and efficient.</p>
+      </div>
+
+      <div class="border-l-4 border-blue-600 pl-6">
+        <h3 class="text-2xl font-bold mb-3">Affordable Cloud Storage</h3>
+        <p class="text-gray-700">Use Backblaze, AWS S3, or any S3-compatible provider. Scales from gigabytes to terabytes without PDM licensing costs.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- How It Works -->
+<div class="bg-slate-50 py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-12 text-center">How It Works</h2>
+
+    <div class="bg-white rounded-lg shadow-lg p-12">
+      <p class="text-lg text-gray-700 mb-6">s3pdm replaces expensive Enterprise PDM systems with a lightweight alternative for solo users. Instead of high-cost server infrastructure, your designs are stored in S3-compatible cloud storage (Backblaze, AWS, etc.) at a fraction of the price.</p>
+
+      <h3 class="text-2xl font-bold mb-4 mt-8">The Workflow</h3>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 ml-4">
+        <li>Point s3pdm at a folder containing your SOLIDWORKS projects</li>
+        <li>Check in files—they're uploaded to your S3 storage with full version history</li>
+        <li>Browse the folder tree, see file sizes and modification status</li>
+        <li>Rename, move, or untrack files with history preserved</li>
+        <li>Restore any previous version instantly</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<!-- System Details -->
+<div id="system" class="bg-white py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-12 text-center">System Details</h2>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      <div>
+        <h3 class="text-2xl font-bold mb-6">Storage Limits</h3>
+        <ul class="space-y-3 text-gray-700">
+          <li><strong>File Size:</strong> Up to 5 TB (S3 provider limit)</li>
+          <li><strong>SOLIDWORKS Files:</strong> Tested with files up to 250 MB</li>
+          <li><strong>Multipart Upload:</strong> Automatic for large files</li>
+          <li><strong>Free Space:</strong> Restore operations need space for temp files</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold mb-6">Current Features</h3>
+        <ul class="space-y-3 text-gray-700">
+          <li>✓ Folder tree with collapsible structure</li>
+          <li>✓ File and folder sizes</li>
+          <li>✓ Bulk check-in by folder</li>
+          <li>✓ Rename and move with history</li>
+          <li>✓ Untrack with safe archiving</li>
+          <li>✓ Local history cache</li>
+          <li>✓ Version history and restore</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 bg-blue-50 border-l-4 border-blue-600 p-6 rounded">
+      <h3 class="text-xl font-bold mb-3">Coming Soon</h3>
+      <p class="text-gray-700">Right-click context menus, Open in SOLIDWORKS, Show in Folder, and improved large file handling.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Why S3PDM -->
+<div class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-12 text-center">Why S3PDM?</h2>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <div class="text-4xl font-bold text-blue-400 mb-3">💰</div>
+        <h3 class="text-xl font-bold mb-2">No License Costs</h3>
+        <p class="text-slate-300">Skip expensive PDM licensing. Pay only for cloud storage.</p>
+      </div>
+
+      <div class="text-center">
+        <div class="text-4xl font-bold text-blue-400 mb-3">⚡</div>
+        <h3 class="text-xl font-bold mb-2">Full Version History</h3>
+        <p class="text-slate-300">Every change tracked. Restore any version instantly.</p>
+      </div>
+
+      <div class="text-center">
+        <div class="text-4xl font-bold text-blue-400 mb-3">🛡️</div>
+        <h3 class="text-xl font-bold mb-2">Cloud Backed</h3>
+        <p class="text-slate-300">Your designs are safe in cloud storage with optional Object Lock.</p>
+      </div>
+    </div>
   </div>
 </div>

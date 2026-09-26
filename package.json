@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "s3pdm",
   "version": "1.0.0",
   "description": "Single page website",
