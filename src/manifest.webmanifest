@@ -1,0 +1,10 @@
+{
+  "name": "S3PDM",
+  "short_name": "S3PDM",
+  "description": "Single page website",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000"
+}
