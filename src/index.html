@@ -4,15 +4,38 @@ title: S3PDM - Personal PDM for SOLIDWORKS
 ---
 
 <!-- Hero Section -->
-<div class="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white flex items-center">
-  <div class="max-w-6xl mx-auto px-6 py-20 w-full">
-    <div class="inline-block bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">Free & Open Source</div>
-    <h1 class="text-6xl font-bold mb-6">s3pdm</h1>
-    <p class="text-2xl text-slate-300 mb-8 max-w-2xl">Personal PDM for solo SOLIDWORKS users. Version control, file history, and folder management—backed by affordable cloud storage. No software fees.</p>
-    <div class="flex gap-4 flex-wrap">
-      <a href="#features" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition">Learn More</a>
-      <a href="/usage" class="bg-slate-700 hover:bg-slate-600 px-8 py-3 rounded-lg font-semibold transition">Usage Guide</a>
-      <a href="https://github.com/MadJalapeno/s3pdm" target="_blank" class="bg-slate-700 hover:bg-slate-600 px-8 py-3 rounded-lg font-semibold transition">GitHub</a>
+<div class="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800 text-white flex items-center relative overflow-hidden">
+  <!-- Background Image -->
+  <div
+    class="hidden lg:block absolute right-0 top-1/3"
+    style="
+      perspective: 1200px;
+      width: 50%;
+      transform: translateY(-50%);
+    "
+  >
+    <img
+      src="/assets/images/mac_tree.png"
+      alt="s3pdm folder tree interface"
+      class="w-full h-auto"
+      style="
+        transform: rotateY(-25deg);
+        transform-origin: center;
+      "
+    >
+  </div>
+
+  <!-- Content overlay -->
+  <div class="max-w-6xl mx-auto px-6 py-20 w-full relative z-10">
+    <div class="max-w-2xl">
+      <div class="inline-block bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">Free & Open Source</div>
+      <h1 class="text-6xl font-bold mb-6">s3pdm</h1>
+      <p class="text-2xl text-slate-300 mb-8">Personal PDM for solo SOLIDWORKS users.<br />Works on Mac and PC. <br />Version control, file history, and folder management—backed by affordable cloud storage.<br />No software fees.</p>
+      <div class="flex gap-4 flex-wrap">
+        <a href="#features" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition">Learn More</a>
+        <a href="/usage" class="bg-slate-700 hover:bg-slate-600 px-8 py-3 rounded-lg font-semibold transition">Usage Guide</a>
+        <a href="https://github.com/MadJalapeno/s3pdm" target="_blank" class="bg-slate-700 hover:bg-slate-600 px-8 py-3 rounded-lg font-semibold transition">GitHub</a>
+      </div>
     </div>
   </div>
 </div>
@@ -44,7 +67,7 @@ title: S3PDM - Personal PDM for SOLIDWORKS
       </div>
 
       <div class="border-l-4 border-blue-600 pl-6">
-        <h3 class="text-2xl font-bold mb-3">Local Cache</h3>
+        <h3 class="text-2xl font-bold mb-3">Local Cache - No Database</h3>
         <p class="text-gray-700">First refresh downloads history once. Subsequent refreshes only fetch changes—fast and efficient.</p>
       </div>
 
@@ -56,6 +79,16 @@ title: S3PDM - Personal PDM for SOLIDWORKS
       <div class="border-l-4 border-blue-600 pl-6">
         <h3 class="text-2xl font-bold mb-3">Direct File Sharing</h3>
         <p class="text-gray-700">Latest versions are stored in the S3 provider's <code class="bg-gray-200 px-2 py-1 rounded">current/</code> folder. Generate shareable links directly from your cloud provider—no re-upload needed. Send secure URLs to clients or colleagues.</p>
+      </div>
+
+      <div class="border-l-4 border-blue-600 pl-6">
+        <h3 class="text-2xl font-bold mb-3">Works on Mac & PC</h3>
+        <p class="text-gray-700">Run s3pdm on Windows or macOS. Same experience across platforms with full feature parity.</p>
+      </div>
+
+      <div class="border-l-4 border-blue-600 pl-6">
+        <h3 class="text-2xl font-bold mb-3">Any File Type</h3>
+        <p class="text-gray-700">Version control for SOLIDWORKS, Office, Blender, Images, and anything else. Not limited to CAD — works for any project that needs revision history.</p>
       </div>
     </div>
   </div>
@@ -88,11 +121,11 @@ title: S3PDM - Personal PDM for SOLIDWORKS
 
     <div class="grid md:grid-cols-2 gap-12">
       <div>
-        <h3 class="text-2xl font-bold mb-6">Storage Limits</h3>
+        <h3 class="text-2xl font-bold mb-6">System Requirements</h3>
         <ul class="space-y-3 text-gray-700">
+          <li><strong>Operating Systems:</strong> Windows and macOS</li>
           <li><strong>File Size:</strong> Up to 5 TB (S3 provider limit) <span class="text-sm italic text-blue-600">— overkill for SOLIDWORKS</span></li>
           <li><strong>SOLIDWORKS Files:</strong> Tested with files up to 250 MB</li>
-          <li><strong>Real-World Limit:</strong> Your imagination 🚀</li>
           <li><strong>Free Space:</strong> Restore operations need space for temp files</li>
         </ul>
       </div>
