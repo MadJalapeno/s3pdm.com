@@ -1,0 +1,168 @@
+---
+layout: base.njk
+title: Installation - S3PDM
+---
+
+<!-- Header -->
+<div class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+  <div class="max-w-4xl mx-auto px-6">
+    <a href="/" class="text-blue-400 hover:text-blue-300 mb-4 inline-block">← Back to Home</a>
+    <h1 class="text-5xl font-bold">Installation</h1>
+    <p class="text-xl text-slate-300 mt-4">Get s3pdm up and running in minutes</p>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="bg-white py-16">
+  <div class="max-w-4xl mx-auto px-6">
+
+    <div class="bg-green-50 border-l-4 border-green-600 p-8 rounded-lg mb-6">
+      <h3 class="text-xl font-bold mb-2 text-green-900">Free & Open Source</h3>
+      <p class="text-green-800">s3pdm is completely free. No software licenses, no subscription fees. Download it now—no registration required.</p>
+    </div>
+
+    <!-- Step 1: Python -->
+    <div class="bg-slate-50 p-8 rounded-lg mb-6">
+      <h3 class="text-xl font-bold mb-4">Step 1: Install Python</h3>
+      <p class="text-gray-700 mb-4">s3pdm requires Python 3.8 or later. Check if you have it installed:</p>
+
+      <div class="bg-gray-900 text-gray-100 p-4 rounded mb-4 font-mono text-sm overflow-x-auto">
+        python --version
+      </div>
+
+      <p class="text-gray-700 mb-4"><strong>If Python is not installed:</strong></p>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 ml-4">
+        <li>Go to <a href="https://www.python.org/downloads/" target="_blank" class="text-blue-600 hover:underline">python.org/downloads</a></li>
+        <li>Download the latest Python installer for Windows</li>
+        <li>Run the installer</li>
+        <li><strong>Important:</strong> Check the box "Add Python to PATH" during installation</li>
+        <li>Click "Install Now" and wait for it to complete</li>
+        <li>Restart your computer</li>
+      </ol>
+    </div>
+
+    <!-- Step 2: Download s3pdm -->
+    <div class="bg-slate-50 p-8 rounded-lg mb-6">
+      <h3 class="text-xl font-bold mb-4">Step 2: Download s3pdm</h3>
+      <ol class="list-decimal list-inside space-y-4 text-gray-700 ml-4">
+        <li>Visit the <a href="https://github.com/MadJalapeno/s3pdm/releases" target="_blank" class="text-blue-600 hover:underline">GitHub Releases page</a></li>
+        <li>Find the latest release (top of the list)</li>
+        <li>Under "Assets", download the file labeled <code class="bg-gray-200 px-2 py-1 rounded">source_code.zip</code> or similar</li>
+        <li>Right-click the downloaded .zip file and select "Extract All..."</li>
+        <li>Choose where to save it (e.g., <code class="bg-gray-200 px-2 py-1 rounded">C:\Users\YourName\s3pdm</code>)</li>
+        <li>Click "Extract"</li>
+      </ol>
+    </div>
+
+    <!-- Step 3: Install Dependencies -->
+    <div class="bg-slate-50 p-8 rounded-lg mb-6">
+      <h3 class="text-xl font-bold mb-4">Step 3: Install Python Dependencies</h3>
+      <p class="text-gray-700 mb-4">S3 Vault needs some Python libraries. Here's how to install them:</p>
+
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 ml-4">
+        <li>Open File Explorer and navigate to the S3 Vault folder</li>
+        <li>Hold <code class="bg-gray-200 px-2 py-1 rounded">Shift</code> and right-click in the empty space</li>
+        <li>Select "Open PowerShell window here" or "Open command window here"</li>
+        <li>Copy and paste this command:
+          <div class="bg-gray-900 text-gray-100 p-4 rounded mt-2 font-mono text-sm overflow-x-auto">
+            python -m pip install -r requirements.txt
+          </div>
+        </li>
+        <li>Press <code class="bg-gray-200 px-2 py-1 rounded">Enter</code> and wait for it to finish</li>
+      </ol>
+    </div>
+
+    <!-- Step 4: Run S3 Vault -->
+    <div class="bg-slate-50 p-8 rounded-lg mb-6">
+      <h3 class="text-xl font-bold mb-4">Step 4: Run S3 Vault</h3>
+
+      <p class="text-gray-700 mb-4"><strong>To launch the application:</strong></p>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 ml-4 mb-6">
+        <li>Open File Explorer and navigate to the S3 Vault folder</li>
+        <li>Hold <code class="bg-gray-200 px-2 py-1 rounded">Shift</code> and right-click in the empty space</li>
+        <li>Select "Open PowerShell window here" or "Open command window here"</li>
+        <li>Type this command:
+          <div class="bg-gray-900 text-gray-100 p-4 rounded mt-2 font-mono text-sm overflow-x-auto">
+            python s3vault_gui.py
+          </div>
+        </li>
+        <li>Press <code class="bg-gray-200 px-2 py-1 rounded">Enter</code></li>
+        <li>The S3 Vault window should open</li>
+      </ol>
+
+      <p class="text-gray-700 mb-4"><strong>On Windows (hide the console window):</strong></p>
+      <p class="text-gray-700 mb-4">If the black console window bothers you, use this command instead:</p>
+      <div class="bg-gray-900 text-gray-100 p-4 rounded font-mono text-sm overflow-x-auto">
+        pythonw s3vault_gui.py
+      </div>
+
+      <div class="bg-blue-50 border-l-4 border-blue-600 p-4 rounded mt-6">
+        <p class="text-sm text-gray-700"><strong>Troubleshooting:</strong> If you see an error, make sure you completed Step 3 to install dependencies. If Python still isn't found, restart your computer and try again.</p>
+      </div>
+    </div>
+
+    <!-- Advanced: Standalone App -->
+    <div class="bg-slate-50 p-8 rounded-lg mb-6">
+      <h3 class="text-xl font-bold mb-4">Advanced: Build a Standalone App (Optional)</h3>
+      <p class="text-gray-700 mb-4">For advanced users: you can package S3 Vault as a standalone Windows/macOS app so you don't need Python installed to run it.</p>
+
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 ml-4">
+        <li>Install PyInstaller:
+          <div class="bg-gray-900 text-gray-100 p-4 rounded mt-2 font-mono text-sm overflow-x-auto">
+            python -m pip install pyinstaller
+          </div>
+        </li>
+        <li>In the S3 Vault folder, run:
+          <div class="bg-gray-900 text-gray-100 p-4 rounded mt-2 font-mono text-sm overflow-x-auto">
+            python -m PyInstaller --onefile --windowed --name S3Vault s3vault_gui.py
+          </div>
+        </li>
+        <li>The executable will be in <code class="bg-gray-200 px-2 py-1 rounded">dist/S3Vault.exe</code> (or <code class="bg-gray-200 px-2 py-1 rounded">dist/S3Vault</code> on macOS)</li>
+        <li>You can now run S3 Vault without Python installed</li>
+      </ol>
+    </div>
+
+    <!-- Step 5: Configure Cloud Storage -->
+    <div class="bg-slate-50 p-8 rounded-lg">
+      <h3 class="text-xl font-bold mb-4">Step 5: Configure Cloud Storage</h3>
+      <p class="text-gray-700 mb-4"><strong>Choose any S3-compatible provider (recommended for beginners: Backblaze B2):</strong></p>
+      <ul class="list-disc list-inside space-y-2 text-gray-700 mb-6">
+        <li><strong>Backblaze B2</strong> — $0.006/GB/month (free trial available) ✅ Recommended</li>
+        <li><strong>AWS S3</strong> — $0.023/GB/month (free tier for first year)</li>
+        <li><strong>DigitalOcean Spaces</strong> — $5/month for 250 GB</li>
+        <li>MinIO — Self-hosted option</li>
+        <li>Any S3-compatible service — No vendor lock-in</li>
+      </ul>
+
+      <p class="text-gray-700 font-semibold mb-3">Setting up Backblaze B2 (easiest option):</p>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 ml-4 mb-6">
+        <li>Go to <a href="https://www.backblaze.com/b2/cloud-storage.html" target="_blank" class="text-blue-600 hover:underline">backblaze.com</a> and sign up for B2 (free trial)</li>
+        <li>Create a new "Bucket" — give it a name like <code class="bg-gray-200 px-2 py-1 rounded">my-solidworks-vault</code></li>
+        <li>Go to Account Settings → App Keys</li>
+        <li>Click "Create Application Key"</li>
+        <li>Copy the <strong>Application Key ID</strong> and <strong>Application Key</strong> — you'll need these</li>
+      </ol>
+
+      <p class="text-gray-700 font-semibold mb-3">Configure s3pdm with your credentials:</p>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 ml-4">
+        <li>In the s3pdm window, click <strong>Settings</strong></li>
+        <li>Select your cloud provider (e.g., "Backblaze B2")</li>
+        <li>Paste your Application Key ID and Application Key</li>
+        <li>Enter your bucket name</li>
+        <li>Choose the vault folder (where your SOLIDWORKS projects are stored)</li>
+        <li>Click <strong>Save</strong></li>
+        <li>Click <strong>Refresh</strong> to sync with the cloud</li>
+      </ol>
+    </div>
+
+    <!-- CTA -->
+    <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8 rounded-lg text-center mt-16">
+      <h2 class="text-2xl font-bold mb-4">Ready to Get Started?</h2>
+      <p class="mb-6">Now that you have s3pdm installed, check out the <a href="/usage" class="text-blue-200 hover:text-white underline">Usage Guide</a> to learn how to use it.</p>
+      <a href="https://github.com/MadJalapeno/s3pdm" target="_blank" class="bg-white text-blue-600 hover:bg-slate-100 px-8 py-3 rounded-lg font-semibold transition inline-block">
+        Download from GitHub
+      </a>
+    </div>
+
+  </div>
+</div>

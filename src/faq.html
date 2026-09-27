@@ -1,0 +1,177 @@
+---
+layout: base.njk
+title: FAQ - S3PDM
+---
+
+<!-- Header -->
+<div class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+  <div class="max-w-4xl mx-auto px-6">
+    <a href="/" class="text-blue-400 hover:text-blue-300 mb-4 inline-block">← Back to Home</a>
+    <h1 class="text-5xl font-bold">FAQ</h1>
+    <p class="text-xl text-slate-300 mt-4">Answers to common questions</p>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="bg-white py-16">
+  <div class="max-w-4xl mx-auto px-6">
+
+    <!-- What is PDM -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">What is PDM?</h2>
+
+      <p class="text-lg text-gray-700 mb-6"><strong>PDM</strong> stands for <strong>Product Data Management</strong>. It's a system for organizing, versioning, and managing design files—especially important for CAD work where designs evolve and you need to track every change.</p>
+
+      <div class="space-y-4">
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <h4 class="font-bold text-gray-900 mb-2">Traditional PDM (expensive)</h4>
+          <p class="text-gray-700">Enterprise PDM systems like Autodesk Vault, Dassault 3DEXPERIENCE, or Windchill cost thousands of dollars per seat and require server infrastructure. They're built for teams and provide features like:</p>
+          <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2 ml-4">
+            <li>File locking (prevent conflicts when multiple people edit the same file)</li>
+            <li>Workflow approval processes</li>
+            <li>Permissions and role-based access</li>
+            <li>Integration with ERP systems</li>
+          </ul>
+          <p class="text-gray-700 mt-2">These are powerful but overkill for a solo designer.</p>
+        </div>
+
+        <div class="bg-green-50 p-6 rounded-lg">
+          <h4 class="font-bold text-gray-900 mb-2">What s3pdm does (free)</h4>
+          <p class="text-gray-700">s3pdm is a lightweight personal PDM for solo SOLIDWORKS users. It gives you the core PDM features that actually matter for one person:</p>
+          <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2 ml-4">
+            <li>Version control—every file has complete history</li>
+            <li>Check-in with comments—document why you made changes</li>
+            <li>File management—organize by folders, see sizes and modification status</li>
+            <li>Restore—go back to any previous version instantly</li>
+            <li>Cloud storage—files live in S3, not on your local PC</li>
+          </ul>
+          <p class="text-gray-700 mt-2">No approvals, no team coordination, no enterprise overhead. Just straightforward version control for your designs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Git vs S3PDM -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">How does this compare to Git?</h2>
+
+      <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded mb-8">
+        <p class="text-gray-700">Git and s3pdm overlap, but they're built around different ideas. For SOLIDWORKS files, the differences matter more than they first appear.</p>
+      </div>
+
+      <!-- Where Git is Better -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold mb-6 text-slate-900">Where Git is Better</h3>
+
+        <div class="space-y-4">
+          <div class="bg-slate-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">Project-wide snapshots</h4>
+            <p class="text-gray-700">Every Git commit captures the whole project exactly as it was, so <code class="bg-gray-200 px-2 py-1 rounded">git checkout &lt;commit&gt;</code> puts every part, assembly, and drawing back to a consistent state. s3pdm records which versions went together in each check-in, but you'd restore them file by file.</p>
+          </div>
+
+          <div class="bg-slate-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">Branches and tags</h4>
+            <p class="text-gray-700">You can explore a design variant on a branch or tag exactly what you sent a client. s3pdm has neither.</p>
+          </div>
+
+          <div class="bg-slate-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">Maturity</h4>
+            <p class="text-gray-700">Git is used by millions of people and extremely well tested. s3pdm is a few hundred lines that only you maintain, so a bug in it is your problem.</p>
+          </div>
+
+          <div class="bg-slate-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">Offline commits</h4>
+            <p class="text-gray-700">You commit locally and push later. s3pdm needs a connection to check in.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Where Git is Worse for CAD -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold mb-6 text-slate-900">Where Git is Worse for CAD</h3>
+
+        <div class="space-y-4">
+          <div class="bg-slate-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">Storage bloat</h4>
+            <p class="text-gray-700">Git keeps every version of every file on every machine. Each 250 MB part you revise ten times puts 2.5 GB into your local <code class="bg-gray-200 px-1 rounded">.git</code> folder, forever, on every computer that clones the repository. Git LFS fixes this by keeping large files on a server and downloading only the versions you need. But it adds setup, and its storage is either on GitHub (which charges for LFS space and bandwidth quickly) or a server you host yourself.</p>
+          </div>
+
+          <div class="bg-slate-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">Binary files get none of Git's best features</h4>
+            <p class="text-gray-700">It can't show a meaningful diff of a part file or merge two edits to an assembly, so you mostly get the storage and history parts of Git.</p>
+          </div>
+
+          <div class="bg-slate-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">Workspace rewrites fail</h4>
+            <p class="text-gray-700">Switching commits rewrites the whole working folder. That fails partway through if SOLIDWORKS has files open, and it can confuse SOLIDWORKS if it has files cached.</p>
+          </div>
+
+          <div class="bg-slate-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">Mental model mismatch</h4>
+            <p class="text-gray-700">Its mental model is the whole repository, not individual files. Staging, committing, pushing, and pulling is more ceremony than "check in this file with a comment," and TortoiseGit or GitHub Desktop help only somewhat.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- What S3PDM Does Differently -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold mb-6 text-slate-900">What s3pdm Does Differently</h3>
+
+        <div class="space-y-4">
+          <div class="bg-green-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">History lives only in the cloud</h4>
+            <p class="text-gray-700">Your PC holds just the current files, so there's no local history growing without limit.</p>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">Cheap and simple infrastructure</h4>
+            <p class="text-gray-700">Any cheap S3 bucket is the whole "server." There's nothing to run or maintain.</p>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">PDM-like workflow</h4>
+            <p class="text-gray-700">Its model matches PDM: individual files with version numbers and a comment on each check-in.</p>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">Direct file access</h4>
+            <p class="text-gray-700"><code class="bg-gray-200 px-1 rounded">current/</code> is browsable, so you can get files out with any S3 tool, no Git knowledge required.</p>
+          </div>
+
+          <div class="bg-green-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">Recoverable storage format</h4>
+            <p class="text-gray-700">The storage format is plain JSON and files, simple enough to recover by hand if the app ever breaks.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Git-Based Alternatives -->
+      <div class="mb-12">
+        <h3 class="text-2xl font-bold mb-6 text-slate-900">The In-Between Options</h3>
+
+        <p class="text-gray-700 mb-6">Two Git-based tools solve the large-file problem more cleanly than LFS, and both can use S3 or B2 directly as storage:</p>
+
+        <div class="space-y-4">
+          <div class="bg-slate-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">git-annex</h4>
+            <p class="text-gray-700">Git tracks the history while file contents live in S3, and you only download the versions you ask for. It's very capable, but it has a steep learning curve and its Windows support is rough.</p>
+          </div>
+
+          <div class="bg-slate-50 p-6 rounded-lg">
+            <h4 class="font-bold text-gray-900 mb-2">DVC</h4>
+            <p class="text-gray-700">Aimed at data science, but it works for any large files. It's easier than git-annex, though still command-line oriented.</p>
+          </div>
+
+          <p class="text-gray-700 mt-6">Either would give you Git's snapshots and branches without the storage bloat, at the cost of more complexity than s3pdm.</p>
+        </div>
+      </div>
+
+      <!-- Bottom Line -->
+      <div class="bg-yellow-50 border-l-4 border-yellow-600 p-8 rounded-lg">
+        <h3 class="text-2xl font-bold mb-4 text-yellow-900">The Bottom Line</h3>
+        <p class="text-gray-700 mb-4">For solo SOLIDWORKS work where you want per-file versions, a simple GUI, and history kept off your PC, s3pdm is the better fit.</p>
+        <p class="text-gray-700 mb-4">Git becomes the better choice if you find yourself wanting branches, or wanting to roll a whole project back to a known state. If it's mainly that second one, a "Restore this check-in" feature would be a small addition to s3pdm that would close most of that gap.</p>
+      </div>
+    </section>
+
+  </div>
+</div>
