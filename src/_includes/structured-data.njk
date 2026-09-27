@@ -74,7 +74,7 @@
       "name": "What cloud storage providers does s3pdm support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "s3pdm works with any S3-compatible cloud storage provider, including Backblaze B2, AWS S3, and others. Choose based on your cost and reliability preferences."
+        "text": "s3pdm works with any S3-compatible cloud storage provider: Backblaze B2 ($0.006/GB/month), AWS S3 ($0.023/GB/month), MinIO, DigitalOcean Spaces, and others. No vendor lock-in—switch providers anytime and keep all your files."
       }
     },
     {
@@ -83,6 +83,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes, s3pdm supports renaming and moving files and folders while preserving full version history. It works seamlessly with SOLIDWORKS rename operations and Pack & Go."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the maximum file size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "s3pdm supports files up to 5 TB through S3 APIs. In practice, SOLIDWORKS files rarely exceed 25 MB, so this limit is not a concern for typical design work."
       }
     }
   ]

@@ -49,8 +49,13 @@ title: S3PDM - Personal PDM for SOLIDWORKS
       </div>
 
       <div class="border-l-4 border-blue-600 pl-6">
-        <h3 class="text-2xl font-bold mb-3">Affordable Cloud Storage</h3>
-        <p class="text-gray-700">Use Backblaze, AWS S3, or any S3-compatible provider. Scales from gigabytes to terabytes without PDM licensing costs.</p>
+        <h3 class="text-2xl font-bold mb-3">Any S3-Compatible Storage</h3>
+        <p class="text-gray-700">Works with Backflaze B2, AWS S3, MinIO, DigitalOcean Spaces, or any S3-compatible provider. No vendor lock-in. Free trials and pay-as-you-go pricing with no software licenses.</p>
+      </div>
+
+      <div class="border-l-4 border-blue-600 pl-6">
+        <h3 class="text-2xl font-bold mb-3">Direct File Sharing</h3>
+        <p class="text-gray-700">Latest versions are stored in the S3 provider's <code class="bg-gray-200 px-2 py-1 rounded">current/</code> folder. Generate shareable links directly from your cloud provider—no re-upload needed. Send secure URLs to clients or colleagues.</p>
       </div>
     </div>
   </div>
@@ -85,9 +90,9 @@ title: S3PDM - Personal PDM for SOLIDWORKS
       <div>
         <h3 class="text-2xl font-bold mb-6">Storage Limits</h3>
         <ul class="space-y-3 text-gray-700">
-          <li><strong>File Size:</strong> Up to 5 TB (S3 provider limit)</li>
+          <li><strong>File Size:</strong> Up to 5 TB (S3 provider limit) <span class="text-sm italic text-blue-600">— overkill for SOLIDWORKS</span></li>
           <li><strong>SOLIDWORKS Files:</strong> Tested with files up to 250 MB</li>
-          <li><strong>Multipart Upload:</strong> Automatic for large files</li>
+          <li><strong>Real-World Limit:</strong> Your imagination 🚀</li>
           <li><strong>Free Space:</strong> Restore operations need space for temp files</li>
         </ul>
       </div>
@@ -121,24 +126,28 @@ title: S3PDM - Personal PDM for SOLIDWORKS
     <div class="grid md:grid-cols-3 gap-8">
       <div class="text-center">
         <div class="text-4xl font-bold text-green-400 mb-3">🎉</div>
-        <h3 class="text-xl font-bold mb-2">100% Free</h3>
-        <p class="text-slate-300">Open source software. No license fees, no subscription costs. Pay only for cloud storage if you use it.</p>
+        <h3 class="text-xl font-bold mb-2">100% Free Software</h3>
+        <p class="text-slate-300">Open source. No license fees, no subscriptions. You only pay for actual cloud storage you use.</p>
       </div>
 
       <div class="text-center">
-        <div class="text-4xl font-bold text-blue-400 mb-3">⚡</div>
-        <h3 class="text-xl font-bold mb-2">Full Version History</h3>
-        <p class="text-slate-300">Every change tracked. Restore any version instantly.</p>
+        <div class="text-4xl font-bold text-purple-400 mb-3">🔓</div>
+        <h3 class="text-xl font-bold mb-2">No Vendor Lock-In</h3>
+        <p class="text-slate-300">Use Backblaze, AWS, MinIO, or any S3-compatible provider. Switch anytime, keep all your files.</p>
       </div>
 
       <div class="text-center">
-        <div class="text-4xl font-bold text-blue-400 mb-3">🛡️</div>
-        <h3 class="text-xl font-bold mb-2">Cloud Backed</h3>
-        <p class="text-slate-300">Your designs are safe in cloud storage with optional Object Lock.</p>
+        <div class="text-4xl font-bold text-blue-400 mb-3">💾</div>
+        <h3 class="text-xl font-bold mb-2">Pennies Per Month</h3>
+        <p class="text-slate-300">Backblaze B2 costs $0.006 per GB/month. Store 100 GB for $0.60/month.</p>
       </div>
     </div>
 
-    <div class="mt-16 text-center">
+    <div class="mt-16 mb-8 bg-yellow-900/20 border border-yellow-700 p-4 rounded-lg">
+      <p class="text-sm text-yellow-200"><strong>⚠️ Disclaimer:</strong> S3 Vault is version control software, not a backup system. Maintain independent backups of critical files. See <a href="/usage" class="text-yellow-300 hover:underline">full disclaimer</a> in the usage guide.</p>
+    </div>
+
+    <div class="text-center">
       <p class="text-slate-300 mb-6">Ready to get started?</p>
       <div class="flex gap-4 justify-center flex-wrap">
         <a href="/usage" class="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition">View Usage Guide</a>
