@@ -20,11 +20,8 @@ title: Screenshots - S3PDM
 
       <!-- File Tree Screenshot -->
       <div>
-        <div class="bg-slate-200 rounded-lg overflow-hidden shadow-lg mb-4 aspect-video flex items-center justify-center">
-          <div class="text-center text-slate-500">
-            <p class="text-lg font-semibold">File Tree with Folder Status</p>
-            <p class="text-sm">[Screenshot coming soon]</p>
-          </div>
+        <div class="rounded-lg overflow-hidden shadow-lg mb-4 cursor-pointer hover:shadow-xl transition-shadow" data-modal-trigger="/assets/images/mac_tree.png" data-modal-title="Folder Tree">
+          <img src="/assets/images/mac_tree.png" alt="File Tree with Folder Status" class="w-full h-auto">
         </div>
         <h3 class="text-2xl font-bold mb-2">Folder Tree</h3>
         <p class="text-gray-700">Browse your vault with a collapsible folder tree. See total folder sizes, modification status, and untracked files at a glance. Folders are color-coded by status.</p>
@@ -32,35 +29,26 @@ title: Screenshots - S3PDM
 
       <!-- Log View Screenshot -->
       <div>
-        <div class="bg-slate-200 rounded-lg overflow-hidden shadow-lg mb-4 aspect-video flex items-center justify-center">
-          <div class="text-center text-slate-500">
-            <p class="text-lg font-semibold">Version History Log</p>
-            <p class="text-sm">[Screenshot coming soon]</p>
-          </div>
+        <div class="rounded-lg overflow-hidden shadow-lg mb-4 cursor-pointer hover:shadow-xl transition-shadow" data-modal-trigger="/assets/images/mac_history.png" data-modal-title="Version History">
+          <img src="/assets/images/mac_history.png" alt="Version History Log" class="w-full h-auto">
         </div>
         <h3 class="text-2xl font-bold mb-2">Version History</h3>
         <p class="text-gray-700">View every check-in, rename, untrack, and restore operation. Click any version to restore it instantly. Full audit trail of all changes.</p>
       </div>
 
-      <!-- Rename Dialog Screenshot -->
+      <!--  Log Screenshot -->
       <div>
-        <div class="bg-slate-200 rounded-lg overflow-hidden shadow-lg mb-4 aspect-video flex items-center justify-center">
-          <div class="text-center text-slate-500">
-            <p class="text-lg font-semibold">Rename/Move Dialog</p>
-            <p class="text-sm">[Screenshot coming soon]</p>
-          </div>
+        <div class="rounded-lg overflow-hidden shadow-lg mb-4 cursor-pointer hover:shadow-xl transition-shadow" data-modal-trigger="/assets/images/mac_log.png" data-modal-title="Log View">
+          <img src="/assets/images/mac_log.png" alt="Log View" class="w-full h-auto">
         </div>
-        <h3 class="text-2xl font-bold mb-2">Rename & Move</h3>
-        <p class="text-gray-700">Rename or move files and folders while preserving history. Works seamlessly with SOLIDWORKS renames and Pack & Go operations.</p>
+        <h3 class="text-2xl font-bold mb-2">Log View</h3>
+        <p class="text-gray-700">Log View shows all the file check ins, with details of the files checked in.</p>
       </div>
 
       <!-- Settings Screenshot -->
       <div>
-        <div class="bg-slate-200 rounded-lg overflow-hidden shadow-lg mb-4 aspect-video flex items-center justify-center">
-          <div class="text-center text-slate-500">
-            <p class="text-lg font-semibold">Settings Panel</p>
-            <p class="text-sm">[Screenshot coming soon]</p>
-          </div>
+        <div class="rounded-lg overflow-hidden shadow-lg mb-4 cursor-pointer hover:shadow-xl transition-shadow" data-modal-trigger="/assets/images/mac_settings.png" data-modal-title="Configuration">
+          <img src="/assets/images/mac_settings.png" alt="Settings Panel" class="w-full h-auto">
         </div>
         <h3 class="text-2xl font-bold mb-2">Configuration</h3>
         <p class="text-gray-700">Simple settings to configure your cloud storage credentials and vault folder. Supports Backblaze B2, AWS S3, and S3-compatible providers.</p>
@@ -68,11 +56,57 @@ title: Screenshots - S3PDM
 
     </div>
 
-    <!-- Note about screenshots -->
-    <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg text-center">
-      <p class="text-gray-700">Screenshots will be added soon. For now, download s3pdm from GitHub to see the interface in action.</p>
-      <a href="https://github.com/MadJalapeno/s3pdm" target="_blank" class="text-blue-600 hover:underline font-semibold mt-4 inline-block">View on GitHub →</a>
-    </div>
-
   </div>
 </div>
+
+<!-- Image Modal -->
+<div id="imageModal" class="hidden fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center p-4">
+  <div class="relative max-w-4xl max-h-[90vh] flex flex-col">
+    <button id="closeModal" class="absolute -top-10 right-0 text-white hover:text-gray-300 text-2xl font-bold">
+      ✕
+    </button>
+    <img id="modalImage" src="" alt="" class="max-w-full max-h-[80vh] object-contain rounded-lg">
+    <p id="modalTitle" class="text-white text-center mt-4 text-lg font-semibold"></p>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('imageModal');
+  const modalImage = document.getElementById('modalImage');
+  const modalTitle = document.getElementById('modalTitle');
+  const closeBtn = document.getElementById('closeModal');
+
+  // Add click handlers to all image containers
+  document.querySelectorAll('[data-modal-trigger]').forEach(element => {
+    element.addEventListener('click', function() {
+      const imageSrc = this.getAttribute('data-modal-trigger');
+      const imageTitle = this.getAttribute('data-modal-title');
+      modalImage.src = imageSrc;
+      modalImage.alt = imageTitle;
+      modalTitle.textContent = imageTitle;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  // Close modal
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close modal function
+  function closeModal() {
+    modal.classList.add('hidden');
+    document.body.style.overflow = 'auto';
+  }
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeModal();
+    }
+  });
+</script>
