@@ -1,0 +1,42 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <meta name="description" content="Free and open source personal PDM for SOLIDWORKS. Version control, file history, and folder management backed by affordable cloud storage. No software fees.">
+    <meta name="keywords" content="PDM, SOLIDWORKS, file versioning, document management, cloud storage, s3, free software">
+    <meta name="author" content="jalapeno.design">
+    <meta name="robots" content="index, follow">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://s3pdm.com{% if page.url != '/' %}{{ page.url }}{% endif %}">
+
+    <!-- OpenGraph Tags -->
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="Free personal PDM for SOLIDWORKS users. Enterprise features without the enterprise cost.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://s3pdm.com{% if page.url != '/' %}{{ page.url }}{% endif %}">
+    <meta property="og:image" content="https://s3pdm.com/assets/images/og-image.png">
+    <meta property="og:image:alt" content="s3pdm - Personal PDM for SOLIDWORKS">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="Free personal PDM for SOLIDWORKS. No software fees, just cloud storage.">
+    <meta name="twitter:image" content="https://s3pdm.com/assets/images/og-image.png">
+
+    <!-- Favicon and Manifest -->
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
+    <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#0f172a">
+
+    <link rel="stylesheet" href="/assets/css/tailwind.css" />
+
+{% include "structured-data.njk" %}
+
+  <!-- Analytics - Production only -->
+{% if env.environment != "dev" %}
+  <script defer src="https://stats.jala.dev/api/script.js?siteId=YOUR_SITE_ID"></script>
+{% endif %}
+
+</head>

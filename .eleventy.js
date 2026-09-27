@@ -17,6 +17,12 @@ export default function (eleventyConfig) {
   // Global data
   eleventyConfig.addGlobalData("buildTime", now);
 
+  // Environment flag for analytics
+  const env = {
+    environment: process.env.NODE_ENV === 'production' ? 'prod' : 'dev'
+  };
+  eleventyConfig.addGlobalData("env", env);
+
   // Shortcodes
   eleventyConfig.addShortcode('version', function () {
     return String(now.getTime())

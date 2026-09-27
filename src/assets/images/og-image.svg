@@ -1,0 +1,23 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e293b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Large S3 Folder Logo -->
+  <g transform="translate(150, 150)">
+    <path d="M0 0h200l60 80h300a40 40 0 0140 40v360a40 40 0 01-40 40H40a40 40 0 01-40-40V40a40 40 0 0140-40z" fill="#3B82F6" stroke="#1E40AF" stroke-width="2"/>
+    <text x="300" y="350" font-size="120" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial, sans-serif">S3</text>
+  </g>
+
+  <!-- Text -->
+  <text x="600" y="200" font-size="72" font-weight="bold" fill="white" text-anchor="middle" font-family="Arial, sans-serif">s3pdm</text>
+  <text x="600" y="280" font-size="36" fill="#93c5fd" text-anchor="middle" font-family="Arial, sans-serif">Personal PDM for SOLIDWORKS</text>
+  <text x="600" y="350" font-size="28" fill="#cbd5e1" text-anchor="middle" font-family="Arial, sans-serif">Free & Open Source</text>
+  <text x="600" y="400" font-size="24" fill="#94a3b8" text-anchor="middle" font-family="Arial, sans-serif">Version control without the cost</text>
+</svg>
