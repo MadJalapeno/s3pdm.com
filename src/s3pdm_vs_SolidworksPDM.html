@@ -1,0 +1,400 @@
+---
+layout: base.njk
+title: S3 Vault vs SOLIDWORKS PDM Standard
+---
+
+<!-- Header -->
+<div class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+  <div class="max-w-4xl mx-auto px-6">
+    <a href="/" class="text-blue-400 hover:text-blue-300 mb-4 inline-block">← Back to Home</a>
+    <h1 class="text-5xl font-bold">S3 Vault vs SOLIDWORKS PDM Standard</h1>
+    <p class="text-xl text-slate-300 mt-4">Compared: S3 Vault 1.0.3 and SOLIDWORKS PDM Standard 2025/2026. September 2026.</p>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="bg-white py-16">
+  <div class="max-w-4xl mx-auto px-6">
+
+    <!-- Summary -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">Summary</h2>
+
+      <p class="text-lg text-gray-700 mb-6"><strong>SOLIDWORKS PDM Standard</strong> is a real product data management system: reference-aware check-in and check-out inside SOLIDWORKS, a searchable database, workflows and revision control. The cost of that capability is infrastructure. It needs a Windows server running SQL Server Express on a fast local network, it's administered as a server product, and it's only included with the higher SOLIDWORKS license tiers.</p>
+
+      <p class="text-lg text-gray-700 mb-6"><strong>S3 Vault</strong> is a small, deliberately simple tool for one person, or a few who coordinate, who want the core benefit of a PDM: a safe, versioned, commented history of every file, stored off the machine. It needs no server at all. Storage is a cloud bucket or a folder, and the app runs on Windows and macOS.</p>
+
+      <p class="text-lg text-gray-700">In short: PDM Standard manages <em>SOLIDWORKS data</em>. S3 Vault manages <em>files</em>. For a solo designer whose main need is "never lose work, know what changed, get any version back," S3 Vault covers that without a server. Once a team needs reference-aware check-in, approvals or controlled revisions, PDM Standard (or PDM Professional) is the right tool.</p>
+    </section>
+
+    <!-- At a Glance Table -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">At a Glance</h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-slate-100 border-b-2 border-slate-300">
+              <th class="px-4 py-3 text-left font-bold text-slate-900">Feature</th>
+              <th class="px-4 py-3 text-left font-bold text-slate-900">S3 Vault</th>
+              <th class="px-4 py-3 text-left font-bold text-slate-900">SOLIDWORKS PDM Standard</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 font-semibold text-slate-900">Intended for</td>
+              <td class="px-4 py-3 text-gray-700">1 user, or a few who coordinate</td>
+              <td class="px-4 py-3 text-gray-700">Small teams, fewer than ~10 users, in one location</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 font-semibold text-slate-900">Server required</td>
+              <td class="px-4 py-3 text-gray-700">No</td>
+              <td class="px-4 py-3 text-gray-700">Yes: archive server, database server and SQL Server Express</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 font-semibold text-slate-900">Server OS</td>
+              <td class="px-4 py-3 text-gray-700">None</td>
+              <td class="px-4 py-3 text-gray-700">Windows Server (desktop Windows possible but not recommended for production)</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 font-semibold text-slate-900">Database</td>
+              <td class="px-4 py-3 text-gray-700">None: history is plain JSON files in storage</td>
+              <td class="px-4 py-3 text-gray-700">Microsoft SQL Server Express</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 font-semibold text-slate-900">Storage</td>
+              <td class="px-4 py-3 text-gray-700">Any S3-compatible bucket (Backblaze B2, Wasabi, AWS, self-hosted Garage) or a folder / network drive / NAS / synced folder</td>
+              <td class="px-4 py-3 text-gray-700">Local disks on the archive server (network storage not supported)</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 font-semibold text-slate-900">Client OS</td>
+              <td class="px-4 py-3 text-gray-700">Windows and macOS</td>
+              <td class="px-4 py-3 text-gray-700">Windows only</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 font-semibold text-slate-900">Works away from the office</td>
+              <td class="px-4 py-3 text-gray-700">Yes, anywhere with internet (S3) or access to the share (folder)</td>
+              <td class="px-4 py-3 text-gray-700">Designed for LAN use; remote sites need replication, which is PDM Professional only</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 font-semibold text-slate-900">SOLIDWORKS integration</td>
+              <td class="px-4 py-3 text-gray-700">None (works on files)</td>
+              <td class="px-4 py-3 text-gray-700">Add-in inside SOLIDWORKS, plus Windows Explorer integration</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 font-semibold text-slate-900">Reference awareness</td>
+              <td class="px-4 py-3 text-gray-700">No</td>
+              <td class="px-4 py-3 text-gray-700">Yes: checks in assemblies with their parts and drawings, tracks where-used</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 font-semibold text-slate-900">Licensing</td>
+              <td class="px-4 py-3 text-gray-700">Free, open source code you own</td>
+              <td class="px-4 py-3 text-gray-700">Included with SOLIDWORKS Professional, Premium and Ultimate</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 font-semibold text-slate-900">Running cost</td>
+              <td class="px-4 py-3 text-gray-700">Storage only, typically a few dollars per TB per month</td>
+              <td class="px-4 py-3 text-gray-700">Server hardware, a Windows Server license, power, backups and admin time</td>
+            </tr>
+            <tr class="hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 font-semibold text-slate-900">Setup time</td>
+              <td class="px-4 py-3 text-gray-700">Minutes</td>
+              <td class="px-4 py-3 text-gray-700">Hours to days, often with reseller help</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Infrastructure -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">Infrastructure</h2>
+
+      <h3 class="text-2xl font-bold mb-6 text-slate-900">PDM Standard</h3>
+      <p class="text-gray-700 mb-6">A PDM installation has three server components, per GoEngineer's system resources guide:</p>
+
+      <ul class="space-y-3 mb-6 ml-6 list-disc text-gray-700">
+        <li><strong>Archive server:</strong> holds the vault files, sends files to and from clients, and validates logins.</li>
+        <li><strong>Database server:</strong> a helper service that processes jobs such as notifications.</li>
+        <li><strong>SQL Server:</strong> stores all the metadata and does most of the work. It's the component that determines performance.</li>
+      </ul>
+
+      <p class="text-gray-700 mb-6">GoEngineer's starting-point recommendations for a small, combined archive and SQL server are <strong>32 GB of RAM and at least 500 GB of disk</strong>, with the archive on <strong>fast, locally attached SSDs</strong>. Network storage such as a SAN isn't supported for the archive. They also recommend that the server be <strong>dedicated to PDM</strong> and not host other applications.</p>
+
+      <p class="text-gray-700 mb-6">PDM Standard uses <strong>SQL Server Express</strong>, which brings hard limits regardless of the hardware:</p>
+
+      <ul class="space-y-2 mb-6 ml-6 list-disc text-gray-700">
+        <li>a maximum database size of 10 GB per database for SQL 2022 and earlier (50 GB for SQL 2025 and later),</li>
+        <li>1 GB of RAM per SQL instance,</li>
+        <li>at most 1 CPU socket or 4 cores.</li>
+      </ul>
+
+      <p class="text-gray-700 mb-6">These limits are why PDM Standard is aimed at small environments of fewer than about 10 users with modest activity.</p>
+
+      <p class="text-gray-700 mb-6"><strong>Network:</strong> clients are expected to be on the same LAN as the archive server, over gigabit connections, with latency under roughly 100 ms. Remote sites need replication, which requires PDM Professional. The server must be a full machine with an installed OS. Hosted SQL services such as AWS or Azure SQL aren't supported.</p>
+
+      <p class="text-gray-700 mb-6"><strong>Operating system:</strong> SOLIDWORKS supports Windows Server (2022 or 2025 for the 2026 release) for PDM server components. Installing them on desktop Windows 11 is technically possible but strongly discouraged for production. Clients are Windows only.</p>
+
+      <p class="text-gray-700"><strong>Version lock-step:</strong> PDM Standard is only supported with the same SOLIDWORKS release, so the server has to be upgraded alongside SOLIDWORKS every year.</p>
+
+      <h3 class="text-2xl font-bold mb-6 mt-12 text-slate-900">S3 Vault</h3>
+      <ul class="space-y-3 ml-6 list-disc text-gray-700">
+        <li><strong>No server, no database, nothing to patch or upgrade.</strong></li>
+        <li>Storage is either an S3 bucket (Backblaze B2, Wasabi, AWS, or a self-hosted Garage or MinIO cluster) or any folder: a network drive, NAS, USB drive, or a folder synced by Sync.com, Box Drive or OneDrive.</li>
+        <li>The app is two Python files. It runs on Windows and macOS and can be packaged as a single executable.</li>
+        <li>A new machine is set up by installing Python, copying the app and entering the storage settings. Get Latest then restores every file.</li>
+        <li>History is stored as plain JSON files beside the file contents, so it stays readable even without the app. The latest version of every file is also kept under its real name in <code class="bg-gray-200 px-2 py-1 rounded">current/</code>.</li>
+      </ul>
+    </section>
+
+    <!-- Features Table -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">Features</h2>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-slate-100 border-b-2 border-slate-300">
+              <th class="px-4 py-3 text-left font-bold text-slate-900">Capability</th>
+              <th class="px-4 py-3 text-left font-bold text-slate-900">S3 Vault</th>
+              <th class="px-4 py-3 text-left font-bold text-slate-900">PDM Standard</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Versioned history of every file</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Required comment on check-in</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+              <td class="px-4 py-3 text-gray-700">✔ (configurable)</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Restore or save any old version</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Check out / exclusive locking</td>
+              <td class="px-4 py-3 text-center text-red-600 font-bold">✘</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Reference-aware check-in (assembly with its parts and drawings)</td>
+              <td class="px-4 py-3 text-center text-red-600 font-bold">✘</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Where-used / contains</td>
+              <td class="px-4 py-3 text-center text-red-600 font-bold">✘</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Rename or move without breaking assembly references</td>
+              <td class="px-4 py-3 text-gray-700">✘ Rename in SOLIDWORKS first, then link the history</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Revision scheme (A, B, C…) separate from versions</td>
+              <td class="px-4 py-3 text-center text-red-600 font-bold">✘</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Workflow states and approvals (e.g. WIP → Released)</td>
+              <td class="px-4 py-3 text-center text-red-600 font-bold">✘</td>
+              <td class="px-4 py-3 text-gray-700">✔ (simplified compared with PDM Professional)</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Data cards, custom properties, searchable metadata</td>
+              <td class="px-4 py-3 text-center text-red-600 font-bold">✘</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Search across the vault</td>
+              <td class="px-4 py-3 text-gray-700">✘ Folder tree with status only</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Users, groups and permissions</td>
+              <td class="px-4 py-3 text-gray-700">✘ Whoever has the storage key has full access</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Integration inside SOLIDWORKS</td>
+              <td class="px-4 py-3 text-center text-red-600 font-bold">✘</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Windows Explorer integration</td>
+              <td class="px-4 py-3 text-gray-700">✘ Separate app window</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">macOS</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+              <td class="px-4 py-3 text-center text-red-600 font-bold">✘</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Use from anywhere</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+              <td class="px-4 py-3 text-gray-700">✘ LAN only without Professional replication</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Multiple projects on different storage</td>
+              <td class="px-4 py-3 text-gray-700">✔ Profiles</td>
+              <td class="px-4 py-3 text-gray-700">✔ Multiple vaults on the server</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Non-SOLIDWORKS files (Office, PDF, scans, images)</td>
+              <td class="px-4 py-3 text-gray-700">✔ Any file</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Latest files readable without the app</td>
+              <td class="px-4 py-3 text-gray-700">✔ <code class="bg-gray-200 px-2 py-1 rounded">current/</code> with real names</td>
+              <td class="px-4 py-3 text-gray-700">✘ Files are stored in the archive's own format</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Deduplication of identical content</td>
+              <td class="px-4 py-3 text-center text-green-500 font-bold">✔</td>
+              <td class="px-4 py-3 text-gray-700">Depends on configuration</td>
+            </tr>
+            <tr class="hover:bg-slate-50">
+              <td class="px-4 py-3 text-gray-700">Offline work</td>
+              <td class="px-4 py-3 text-gray-700">Work on local files; check in when connected</td>
+              <td class="px-4 py-3 text-gray-700">Work on local cache; check in when connected</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Where PDM Standard is Better -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">Where PDM Standard is Clearly Better</h2>
+
+      <div class="space-y-4">
+        <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600">
+          <h4 class="font-bold text-gray-900 mb-2">Reference-aware operations</h4>
+          <p class="text-gray-700">This is the heart of a CAD PDM. Checking in an assembly with all its changed parts, renaming a part and having every assembly and drawing follow, and seeing where a part is used can't be matched by any file-level tool.</p>
+        </div>
+
+        <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600">
+          <h4 class="font-bold text-gray-900 mb-2">Controlled release</h4>
+          <p class="text-gray-700">Workflow states and revisions let a team separate work in progress from released drawings and control who can release them.</p>
+        </div>
+
+        <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600">
+          <h4 class="font-bold text-gray-900 mb-2">Locking</h4>
+          <p class="text-gray-700">Two people can't overwrite each other's work.</p>
+        </div>
+
+        <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600">
+          <h4 class="font-bold text-gray-900 mb-2">Searchable metadata</h4>
+          <p class="text-gray-700">Data cards and SOLIDWORKS custom properties become searchable across the vault.</p>
+        </div>
+
+        <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-600">
+          <h4 class="font-bold text-gray-900 mb-2">Vendor support</h4>
+          <p class="text-gray-700">It's supported by SOLIDWORKS and resellers, with training and documentation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Where S3 Vault is Better -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">Where S3 Vault is Better for Solo Work</h2>
+
+      <div class="space-y-4">
+        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+          <h4 class="font-bold text-gray-900 mb-2">No infrastructure</h4>
+          <p class="text-gray-700">No server, SQL, Windows Server license or dedicated hardware, and no yearly server upgrade tied to the SOLIDWORKS release.</p>
+        </div>
+
+        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+          <h4 class="font-bold text-gray-900 mb-2">Off-site by default</h4>
+          <p class="text-gray-700">Every check-in goes straight to cloud storage or another machine, so the history survives the loss of the workstation or the office.</p>
+        </div>
+
+        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+          <h4 class="font-bold text-gray-900 mb-2">Works anywhere</h4>
+          <p class="text-gray-700">Home, office or on the road, on Windows or macOS.</p>
+        </div>
+
+        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+          <h4 class="font-bold text-gray-900 mb-2">Any storage</h4>
+          <p class="text-gray-700">Low-cost cloud storage, a self-hosted cluster, a NAS or an end-to-end-encrypted sync service, chosen per project through profiles.</p>
+        </div>
+
+        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+          <h4 class="font-bold text-gray-900 mb-2">Transparent format</h4>
+          <p class="text-gray-700">Plain files and JSON, with the latest version of every file under its real name, so there's no lock-in and the vault can be recovered without the app.</p>
+        </div>
+
+        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+          <h4 class="font-bold text-gray-900 mb-2">Cost</h4>
+          <p class="text-gray-700">Storage only.</p>
+        </div>
+
+        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+          <h4 class="font-bold text-gray-900 mb-2">Simplicity</h4>
+          <p class="text-gray-700">Check in, add a comment, done. Nothing to administer.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- S3 Vault Limitations -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">S3 Vault Limitations to Be Aware Of</h2>
+
+      <ul class="space-y-3 ml-6 list-disc text-gray-700">
+        <li>No locking. It's designed for one user at a time.</li>
+        <li>Not reference-aware. Restoring an old assembly doesn't restore its matching parts automatically, although the Log shows which versions were checked in together.</li>
+        <li>Renaming SOLIDWORKS files must be done in SOLIDWORKS (Rename or Pack and Go) to keep references intact. The app then links the history to the new name.</li>
+        <li>Anyone with the storage key has full access. Keep keys private and restricted to one bucket.</li>
+        <li>The storage key is stored in plain text in the local settings file.</li>
+        <li>The <code class="bg-gray-200 px-2 py-1 rounded">current/</code> copy uses a single request, which limits it to files up to 5 GB.</li>
+        <li>It's a small, independently maintained tool, not a vendor-supported product.</li>
+      </ul>
+    </section>
+
+    <!-- Which to Choose -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">Which to Choose</h2>
+
+      <div class="space-y-6">
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Choose S3 Vault</h3>
+          <p class="text-gray-700">if you work alone or with one or two collaborators who coordinate, don't want to run a server, want off-site history by default, work on both Windows and macOS or away from the office, or have a SOLIDWORKS license that doesn't include PDM Standard.</p>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Choose PDM Standard</h3>
+          <p class="text-gray-700">if several people edit the same files, you need locking, released revisions or approvals, you rely on renaming and reusing parts across assemblies, you have (or want) a dedicated Windows server on a fast local network, and your SOLIDWORKS license already includes it.</p>
+        </div>
+
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Consider PDM Professional or a Cloud PDM</h3>
+          <p class="text-gray-700">if the team is spread across locations, needs web access, or will outgrow SQL Server Express.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sources -->
+    <section>
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">Sources</h2>
+
+      <ul class="space-y-3 ml-6 list-disc text-gray-700">
+        <li>GoEngineer, <em>SOLIDWORKS PDM System Resources Starting Point</em> (updated July 2026): <a href="https://www.goengineer.com/blog/solidworks-pdm-system-resources-starting-point" class="text-blue-600 hover:text-blue-800 underline">https://www.goengineer.com/blog/solidworks-pdm-system-resources-starting-point</a></li>
+        <li>SOLIDWORKS Help, <em>SOLIDWORKS PDM</em> (2025): <a href="https://help.solidworks.com/2025/english/WhatsNew/c_wn_pdm.htm" class="text-blue-600 hover:text-blue-800 underline">https://help.solidworks.com/2025/english/WhatsNew/c_wn_pdm.htm</a></li>
+        <li>Javelin, <em>Hardware Recommendations for SOLIDWORKS 2025 Data Management</em>: <a href="https://www.javelin-tech.com/blog/2025/07/hardware-recommendations-for-solidworks-2025-data-management/" class="text-blue-600 hover:text-blue-800 underline">https://www.javelin-tech.com/blog/2025/07/hardware-recommendations-for-solidworks-2025-data-management/</a></li>
+        <li>MLC CAD Systems, <em>SOLIDWORKS and SW PDM System Requirements</em>: <a href="https://www.mlc-cad.com/solidworks-help-center/solidworks-and-sw-pdm-system-requirements/" class="text-blue-600 hover:text-blue-800 underline">https://www.mlc-cad.com/solidworks-help-center/solidworks-and-sw-pdm-system-requirements/</a></li>
+      </ul>
+
+      <p class="text-gray-700 mt-8 italic">PDM details are summarized from the sources above and may change with new SOLIDWORKS releases. Check the current SOLIDWORKS system requirements before planning an installation.</p>
+    </section>
+
+  </div>
+</div>
