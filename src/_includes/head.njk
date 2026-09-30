@@ -34,11 +34,12 @@
 
 {% include "structured-data.njk" %}
 
-  <!-- Analytics - Production only -->
+<!-- Analytics - Production only -->
 {% if env.environment != "dev" %}
-<script
-    src="https://stats.jala.dev/api/script.js?siteId=3d499398ef1f"
-    defer
-></script>{% endif %}
+
+<script src="/analytics/script.js" async data-site-id="3d499398ef1f"></script>
+
+{% endif %}
+<!-- analytics end -->
 
 </head>
