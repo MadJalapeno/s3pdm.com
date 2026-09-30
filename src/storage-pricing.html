@@ -1,0 +1,359 @@
+---
+layout: base.njk
+title: S3 Storage Pricing Calculator - S3PDM
+---
+
+<!-- Header -->
+<div class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
+  <div class="max-w-4xl mx-auto px-6">
+    <a href="/" class="text-blue-400 hover:text-blue-300 mb-4 inline-block">← Back to Home</a>
+    <h1 class="text-5xl font-bold">What S3 Storage Costs for a CAD Vault</h1>
+    <p class="text-xl text-slate-300 mt-4">s3pdm works with any S3-compatible storage. Here's what ten providers charge, what you can get for free, and what your vault would cost each month.</p>
+  </div>
+</div>
+
+<!-- Content -->
+<div class="bg-white py-16">
+  <div class="max-w-4xl mx-auto px-6">
+
+    <!-- Calculator -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-2 text-slate-900">Estimate Your Monthly Cost</h2>
+      <p class="text-lg text-gray-700 mb-8">Enter how much your vault holds and how much you download each month. A solo designer's downloads are usually small: Get Latest on a second machine, or restoring an old version.</p>
+
+      <div class="grid md:grid-cols-2 gap-10 mb-8">
+        <div class="space-y-8">
+          <div>
+            <label for="storage" class="block font-bold text-slate-900 mb-2">Vault size</label>
+            <div class="flex items-baseline gap-2 mb-2">
+              <input id="storage" type="number" min="0" max="20000" step="10" value="250" inputmode="numeric"
+                class="w-28 text-3xl font-bold text-slate-900 border-0 border-b-2 border-slate-900 focus:outline-none focus:border-blue-600 bg-transparent">
+              <span class="text-gray-500 font-semibold">GB stored</span>
+            </div>
+            <input id="storage-range" type="range" min="0" max="100" value="50" class="w-full accent-blue-600" aria-label="Vault size slider">
+            <div class="flex flex-wrap gap-2 mt-3" role="group" aria-label="Common vault sizes">
+              <button type="button" data-gb="25" class="preset-btn text-sm font-semibold px-3 py-1.5 border border-gray-300 rounded text-slate-900 hover:border-blue-600">25 GB</button>
+              <button type="button" data-gb="250" class="preset-btn text-sm font-semibold px-3 py-1.5 border border-gray-300 rounded text-slate-900 hover:border-blue-600">250 GB</button>
+              <button type="button" data-gb="1000" class="preset-btn text-sm font-semibold px-3 py-1.5 border border-gray-300 rounded text-slate-900 hover:border-blue-600">1 TB</button>
+              <button type="button" data-gb="5000" class="preset-btn text-sm font-semibold px-3 py-1.5 border border-gray-300 rounded text-slate-900 hover:border-blue-600">5 TB</button>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">Every version is kept, so include your history, not just the latest files.</p>
+          </div>
+
+          <div>
+            <label for="egress" class="block font-bold text-slate-900 mb-2">Downloads per month</label>
+            <div class="flex items-baseline gap-2 mb-2">
+              <input id="egress" type="number" min="0" max="20000" step="5" value="25" inputmode="numeric"
+                class="w-28 text-3xl font-bold text-slate-900 border-0 border-b-2 border-slate-900 focus:outline-none focus:border-blue-600 bg-transparent">
+              <span class="text-gray-500 font-semibold">GB</span>
+            </div>
+            <input id="egress-range" type="range" min="0" max="100" value="30" class="w-full accent-blue-600" aria-label="Downloads slider">
+          </div>
+        </div>
+
+        <div>
+          <ol id="results" class="space-y-4" aria-live="polite"></ol>
+        </div>
+      </div>
+
+      <p class="text-sm text-gray-500">Estimates in US dollars for standard (hot) storage, using list prices checked September 2026. 1 TB is treated as 1,000 GB. Request fees are left out; they're free or negligible at this scale for every provider shown. Hetzner is converted at &euro;1 = $1.15. Sign-up credits from AWS and Google aren't included because they expire.</p>
+    </section>
+
+    <!-- Free tiers -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-2 text-slate-900">What You Can Get for Free</h2>
+      <p class="text-lg text-gray-700 mb-8">A permanent free tier renews every month. A trial or credit runs out. For a small vault, a permanent tier can cover you indefinitely.</p>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+          <p class="text-xs font-bold uppercase tracking-wide text-green-700 mb-1">Permanent</p>
+          <h4 class="font-bold text-gray-900 mb-2">Backblaze B2</h4>
+          <p class="text-gray-700">First 10 GB of storage free, every month.</p>
+        </div>
+        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+          <p class="text-xs font-bold uppercase tracking-wide text-green-700 mb-1">Permanent</p>
+          <h4 class="font-bold text-gray-900 mb-2">Cloudflare R2</h4>
+          <p class="text-gray-700">10 GB of storage, 1 million writes and 10 million reads per month. Downloads are always free.</p>
+        </div>
+        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+          <p class="text-xs font-bold uppercase tracking-wide text-green-700 mb-1">Permanent</p>
+          <h4 class="font-bold text-gray-900 mb-2">Google Cloud Storage</h4>
+          <p class="text-gray-700">5 GB of Standard storage in selected US regions, plus $300 of credit for new customers.</p>
+        </div>
+        <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
+          <p class="text-xs font-bold uppercase tracking-wide text-green-700 mb-1">Permanent</p>
+          <h4 class="font-bold text-gray-900 mb-2">Filebase</h4>
+          <p class="text-gray-700">5 GB free with no credit card. See the IPFS note below before storing client work.</p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <p class="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Credit</p>
+          <h4 class="font-bold text-gray-900 mb-2">AWS S3</h4>
+          <p class="text-gray-700">New accounts get up to $200 of credit, with a free plan that lasts 6 months.</p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <p class="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Trial</p>
+          <h4 class="font-bold text-gray-900 mb-2">Wasabi</h4>
+          <p class="text-gray-700">30 days with up to 1 TB and no card required.</p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <p class="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Trial</p>
+          <h4 class="font-bold text-gray-900 mb-2">IDrive e2</h4>
+          <p class="text-gray-700">10 GB free to try.</p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <p class="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">Trial</p>
+          <h4 class="font-bold text-gray-900 mb-2">Storj</h4>
+          <p class="text-gray-700">30 days with 25 GB.</p>
+        </div>
+        <div class="bg-slate-50 p-6 rounded-lg">
+          <p class="text-xs font-bold uppercase tracking-wide text-gray-500 mb-1">None</p>
+          <h4 class="font-bold text-gray-900 mb-2">DigitalOcean, Hetzner</h4>
+          <p class="text-gray-700">No free tier. Both are flat monthly plans with storage and downloads included.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Provider table -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-2 text-slate-900">Provider Details</h2>
+      <p class="text-lg text-gray-700 mb-8">List prices for standard storage. Minimums matter most for a small vault: a 1 TB minimum means paying for 1 TB even if you store 50 GB.</p>
+
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse">
+          <thead>
+            <tr class="bg-slate-100 border-b-2 border-slate-300">
+              <th class="px-4 py-3 text-left font-bold text-slate-900">Provider</th>
+              <th class="px-4 py-3 text-left font-bold text-slate-900">Storage</th>
+              <th class="px-4 py-3 text-left font-bold text-slate-900">Downloads</th>
+              <th class="px-4 py-3 text-left font-bold text-slate-900">Minimums</th>
+              <th class="px-4 py-3 text-left font-bold text-slate-900">Worth knowing</th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-700">
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <th scope="row" class="px-4 py-3 font-semibold text-slate-900 whitespace-nowrap">Backblaze B2</th>
+              <td class="px-4 py-3 whitespace-nowrap">$6.95 per TB/month</td>
+              <td class="px-4 py-3">Free up to 3&times; what you store, then $0.01/GB</td>
+              <td class="px-4 py-3">None</td>
+              <td class="px-4 py-3">Pay for exactly what you store. A good default for s3pdm. In Lifecycle settings change to ' Keep only the last version of the file'. </td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <th scope="row" class="px-4 py-3 font-semibold text-slate-900 whitespace-nowrap">Wasabi</th>
+              <td class="px-4 py-3 whitespace-nowrap">$7.99 per TB/month</td>
+              <td class="px-4 py-3">Free while downloads stay at or below your storage</td>
+              <td class="px-4 py-3 text-amber-700">1 TB billed minimum; each object billed for at least 90 days</td>
+              <td class="px-4 py-3">Price rose from $6.99 in July 2026. Good value above 1 TB.</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <th scope="row" class="px-4 py-3 font-semibold text-slate-900 whitespace-nowrap">Cloudflare R2</th>
+              <td class="px-4 py-3 whitespace-nowrap">$15 per TB/month</td>
+              <td class="px-4 py-3">Always free</td>
+              <td class="px-4 py-3">None</td>
+              <td class="px-4 py-3">Small per-request fees beyond the free tier.</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <th scope="row" class="px-4 py-3 font-semibold text-slate-900 whitespace-nowrap">AWS S3 Standard</th>
+              <td class="px-4 py-3 whitespace-nowrap">$23 per TB/month</td>
+              <td class="px-4 py-3">First 100 GB/month free, then about $0.09/GB</td>
+              <td class="px-4 py-3">None</td>
+              <td class="px-4 py-3">US East price. Request fees are extra. The most expensive here for storage.</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <th scope="row" class="px-4 py-3 font-semibold text-slate-900 whitespace-nowrap">Google Cloud Storage</th>
+              <td class="px-4 py-3 whitespace-nowrap">$20 per TB/month</td>
+              <td class="px-4 py-3">From about $0.12/GB</td>
+              <td class="px-4 py-3">None</td>
+              <td class="px-4 py-3">US regional price. Works through Google's S3 interoperability mode with HMAC keys.</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <th scope="row" class="px-4 py-3 font-semibold text-slate-900 whitespace-nowrap">DigitalOcean Spaces</th>
+              <td class="px-4 py-3">$5/month includes 250 GB, then $0.02/GB</td>
+              <td class="px-4 py-3">1 TB/month included, then $0.01/GB</td>
+              <td class="px-4 py-3">$5 per month</td>
+              <td class="px-4 py-3">Simple bundle with a built-in CDN.</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <th scope="row" class="px-4 py-3 font-semibold text-slate-900 whitespace-nowrap">Hetzner Object Storage</th>
+              <td class="px-4 py-3">&euro;6.49/month includes 1 TB, then about &euro;6.50/TB</td>
+              <td class="px-4 py-3">1 TB/month included, then &euro;1/TB</td>
+              <td class="px-4 py-3">&euro;6.49 per month</td>
+              <td class="px-4 py-3">Data centers in Germany and Finland. Price rose from &euro;4.99 in April 2026.</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50 bg-slate-50">
+              <th scope="row" class="px-4 py-3 font-semibold text-slate-900 whitespace-nowrap">IDrive e2</th>
+              <td class="px-4 py-3 whitespace-nowrap">$6 per TB/month</td>
+              <td class="px-4 py-3">Free up to 3&times; what you store, then $0.01/GB</td>
+              <td class="px-4 py-3 text-amber-700">1 TB billed minimum</td>
+              <td class="px-4 py-3">Annual plans work out cheaper: $59.50 per TB per year, with 50% off the first year.</td>
+            </tr>
+            <tr class="border-b border-slate-200 hover:bg-slate-50">
+              <th scope="row" class="px-4 py-3 font-semibold text-slate-900 whitespace-nowrap">Storj</th>
+              <td class="px-4 py-3 whitespace-nowrap">$7 per TB, or part of, stored</td>
+              <td class="px-4 py-3">$7 per TB, or part of, downloaded</td>
+              <td class="px-4 py-3 text-amber-700">$5 monthly minimum</td>
+              <td class="px-4 py-3">Decentralized and encrypted. Check the current pricing before signing up.</td>
+            </tr>
+            <tr class="hover:bg-slate-50 bg-slate-50">
+              <th scope="row" class="px-4 py-3 font-semibold text-slate-900 whitespace-nowrap">Filebase</th>
+              <td class="px-4 py-3">Paid plans from $7.50/month (500 GB)</td>
+              <td class="px-4 py-3">Varies by plan</td>
+              <td class="px-4 py-3">None on the free plan</td>
+              <td class="px-4 py-3 text-amber-700">IPFS-backed storage is publicly retrievable. See below.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded mt-8">
+        <h4 class="font-bold text-gray-900 mb-2">Keep client work off IPFS</h4>
+        <p class="text-gray-700">Filebase stores files on IPFS, a public network. A "private" bucket only hides the S3 address: anyone who has or finds a file's content ID can download it. That's fine for public files, but not for confidential designs.</p>
+      </div>
+
+      <div class="bg-slate-50 border-l-4 border-slate-400 p-6 rounded mt-4">
+        <h4 class="font-bold text-gray-900 mb-2">Why Wasabi's 90-day rule barely matters here</h4>
+        <p class="text-gray-700">s3pdm never deletes file contents from storage, so the 90-day minimum only touches its small history files. The 1 TB minimum is what counts: below 1 TB, you pay for 1 TB.</p>
+      </div>
+    </section>
+
+    <!-- No cost storage -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">Storage You Already Own</h2>
+      <p class="text-lg text-gray-700">s3pdm can also store a vault in a folder on a network drive or NAS, or in a self-hosted S3 server such as Garage or MinIO, with no storage fees at all. It's worth considering if you already run a server, though your data is then only as safe as that hardware and its backups.</p>
+    </section>
+
+    <!-- Sources -->
+    <section>
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">Sources</h2>
+      <p class="text-gray-700 mb-6">Prices change often. Always check the provider's own pricing page before committing.</p>
+      <ul class="space-y-2 ml-6 list-disc text-gray-700">
+        <li><a href="https://www.backblaze.com/cloud-storage/pricing" class="text-blue-600 hover:text-blue-800 underline">Backblaze B2 pricing</a></li>
+        <li><a href="https://wasabi.com/pricing" class="text-blue-600 hover:text-blue-800 underline">Wasabi pricing</a></li>
+        <li><a href="https://developers.cloudflare.com/r2/pricing" class="text-blue-600 hover:text-blue-800 underline">Cloudflare R2 pricing</a></li>
+        <li><a href="https://aws.amazon.com/s3/pricing/" class="text-blue-600 hover:text-blue-800 underline">Amazon S3 pricing</a></li>
+        <li><a href="https://aws.amazon.com/about-aws/whats-new/2025/07/aws-free-tier-credits-month-free-plan/" class="text-blue-600 hover:text-blue-800 underline">AWS Free Tier changes (July 2025)</a></li>
+        <li><a href="https://cloud.google.com/storage/pricing" class="text-blue-600 hover:text-blue-800 underline">Google Cloud Storage pricing</a></li>
+        <li><a href="https://www.digitalocean.com/products/spaces" class="text-blue-600 hover:text-blue-800 underline">DigitalOcean Spaces</a></li>
+        <li><a href="https://www.hetzner.com/storage/object-storage" class="text-blue-600 hover:text-blue-800 underline">Hetzner Object Storage</a></li>
+        <li><a href="https://www.idrive.com/s3-storage-e2/pricing" class="text-blue-600 hover:text-blue-800 underline">IDrive e2 pricing</a></li>
+        <li><a href="https://www.storj.io/pricing" class="text-blue-600 hover:text-blue-800 underline">Storj pricing</a></li>
+        <li><a href="https://filebase.com/pricing/" class="text-blue-600 hover:text-blue-800 underline">Filebase pricing</a></li>
+        <li><a href="https://docs.filebase.com/getting-started/faq" class="text-blue-600 hover:text-blue-800 underline">Filebase FAQ</a></li>
+      </ul>
+      <p class="text-gray-500 text-sm mt-8 italic">Prices checked September 2026. USD, except Hetzner in EUR.</p>
+    </section>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  const EUR_USD = 1.15;
+  const pos = (x) => Math.max(0, x);
+
+  const providers = [
+    { name: "Backblaze B2", tag: "no minimums", calc(S, E) {
+        const cost = pos(S - 10) * 0.00695 + pos(E - 3 * S) * 0.01;
+        return { cost, note: E > 3 * S ? "Downloads above 3× storage are charged." : "" };
+    }},
+    { name: "Wasabi", tag: "1 TB minimum", calc(S, E) {
+        const cost = Math.max(S, 1000) * 0.00799;
+        const notes = [];
+        if (S < 1000) notes.push("Billed as 1 TB.");
+        if (E > Math.max(S, 1)) notes.push("Downloads exceed storage, outside the free-download policy.");
+        return { cost, note: notes.join(" ") };
+    }},
+    { name: "Cloudflare R2", tag: "free downloads", calc(S, E) {
+        return { cost: pos(S - 10) * 0.015, note: "" };
+    }},
+    { name: "AWS S3", tag: "Standard, US East", calc(S, E) {
+        return { cost: S * 0.023 + pos(E - 100) * 0.09, note: "" };
+    }},
+    { name: "Google Cloud", tag: "Standard, US region", calc(S, E) {
+        return { cost: pos(S - 5) * 0.02 + pos(E - 1) * 0.12, note: "" };
+    }},
+    { name: "DigitalOcean", tag: "$5 bundle", calc(S, E) {
+        return { cost: 5 + pos(S - 250) * 0.02 + pos(E - 1000) * 0.01, note: "" };
+    }},
+    { name: "Hetzner", tag: "€6.49 bundle, EU", calc(S, E) {
+        const eur = 6.49 + pos(S - 1000) * 0.0065 + pos(E - 1000) * 0.001;
+        return { cost: eur * EUR_USD, note: "" };
+    }},
+    { name: "IDrive e2", tag: "1 TB minimum", calc(S, E) {
+        const billed = Math.max(S, 1000);
+        const cost = billed * 0.006 + pos(E - 3 * S) * 0.01;
+        return { cost, note: S < 1000 ? "Billed as 1 TB. Annual plans are cheaper." : "Annual plans are cheaper." };
+    }},
+    { name: "Storj", tag: "$5 monthly minimum", calc(S, E) {
+        const storageCost = S > 0 ? Math.ceil(S / 1000) * 7 : 0;
+        const cost = Math.max(storageCost, 5);
+        return { cost, note: storageCost < 5 ? "$5 monthly minimum applies." : "" };
+    }},
+  ];
+
+  const $ = (id) => document.getElementById(id);
+  const storage = $("storage"), egress = $("egress");
+  const storageRange = $("storage-range"), egressRange = $("egress-range");
+  const results = $("results");
+  const presets = document.querySelectorAll(".preset-btn");
+
+  const MAX = 20000;
+  const toGB = (t) => (t <= 0 ? 0 : Math.round(Math.pow(MAX, t / 100)));
+  const toT = (gb) => (gb <= 1 ? 0 : Math.round(100 * Math.log(gb) / Math.log(MAX)));
+
+  const money = (x) => x === 0 ? "Free" : "$" + (x < 10 ? x.toFixed(2) : x < 1000 ? x.toFixed(2).replace(/\.00$/, "") : Math.round(x).toLocaleString());
+
+  function render() {
+    const S = Math.max(0, Number(storage.value) || 0);
+    const E = Math.max(0, Number(egress.value) || 0);
+    presets.forEach((b) => {
+      const active = Number(b.dataset.gb) === S;
+      b.classList.toggle("border-blue-600", active);
+      b.classList.toggle("text-blue-600", active);
+    });
+
+    const rows = providers.map((p) => ({ p, ...p.calc(S, E) }))
+      .sort((a, b) => a.cost - b.cost || a.p.name.localeCompare(b.p.name));
+    const costs = rows.map((r) => r.cost);
+    const top = costs[costs.length - 1], second = costs[costs.length - 2] || 0;
+    const capped = second > 0 && top > 2.5 * second ? second * 1.3 : top;
+    const max = Math.max(capped, 0.01);
+    const best = rows[0].cost;
+
+    results.innerHTML = "";
+    for (const r of rows) {
+      const cents = Math.round(r.cost * 100) / 100;
+      const li = document.createElement("li");
+      li.className = "border-b border-slate-200 pb-3 last:border-0";
+
+      const barColor = cents === best ? "bg-blue-600" : "bg-slate-400";
+      const pct = cents === 0 ? 0 : Math.min(100, Math.max(4, (r.cost / max) * 100));
+
+      li.innerHTML = `
+        <div class="flex justify-between items-baseline gap-4">
+          <div>
+            <span class="font-semibold text-slate-900">${r.p.name}</span>
+            <span class="text-sm text-gray-500 block">${r.p.tag}</span>
+          </div>
+          <span class="font-bold ${cents === best ? "text-blue-600" : "text-slate-900"} whitespace-nowrap">${cents === 0 ? "Free" : money(cents) + " / mo"}</span>
+        </div>
+        ${cents === 0 ? "" : `<div class="w-full bg-slate-100 rounded-full h-2 mt-2"><div class="${barColor} h-2 rounded-full" style="width:${pct}%"></div></div>`}
+        ${r.note ? `<p class="text-sm text-amber-700 mt-1">${r.note}</p>` : ""}
+      `;
+      li.setAttribute("aria-label", `${r.p.name}: ${cents === 0 ? "free" : money(cents) + " per month"}. ${r.note}`);
+      results.appendChild(li);
+    }
+  }
+
+  storage.addEventListener("input", () => { storageRange.value = toT(Number(storage.value)); render(); });
+  egress.addEventListener("input", () => { egressRange.value = toT(Number(egress.value)); render(); });
+  storageRange.addEventListener("input", () => { storage.value = toGB(Number(storageRange.value)); render(); });
+  egressRange.addEventListener("input", () => { egress.value = toGB(Number(egressRange.value)); render(); });
+  presets.forEach((b) => b.addEventListener("click", () => {
+    storage.value = b.dataset.gb; storageRange.value = toT(Number(b.dataset.gb)); render();
+  }));
+
+  storageRange.value = toT(Number(storage.value));
+  egressRange.value = toT(Number(egress.value));
+  render();
+})();
+</script>
