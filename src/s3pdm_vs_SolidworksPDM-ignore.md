@@ -1,6 +1,8 @@
 ---
 layout: base.njk
 title: S3 Vault vs SOLIDWORKS PDM Standard
+permalink: false
+eleventyExcludeFromCollections: true
 ---
 # S3 Vault vs SOLIDWORKS PDM Standard
 

@@ -1,10 +1,22 @@
 {
-  "name": "S3PDM",
-  "short_name": "S3PDM",
-  "description": "Single page website",
+  "name": "s3pdm - Personal PDM for SOLIDWORKS",
+  "short_name": "s3pdm",
+  "description": "Free and open source personal PDM for SOLIDWORKS. Version control, file history, and folder management backed by affordable cloud storage.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000"
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/assets/images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
