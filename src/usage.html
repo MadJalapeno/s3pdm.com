@@ -1,6 +1,7 @@
 ---
 layout: base.njk
-title: Usage Guide - S3PDM
+title: "S3 PDM Vault Usage Guide | Check In, History and Restore"
+description: "How to use S3 PDM Vault: check files in, browse the folder tree, rename and move files with history preserved, and restore any previous version."
 ---
 
 <!-- Header -->
@@ -8,7 +9,7 @@ title: Usage Guide - S3PDM
   <div class="max-w-4xl mx-auto px-6">
     <a href="/" class="text-blue-400 hover:text-blue-300 mb-4 inline-block">← Back to Home</a>
     <h1 class="text-5xl font-bold">Usage Guide</h1>
-    <p class="text-xl text-slate-300 mt-4">Get started with s3pdm in minutes</p>
+    <p class="text-xl text-slate-300 mt-4">Get started with S3 PDM Vault in minutes</p>
   </div>
 </div>
 
@@ -19,19 +20,19 @@ title: Usage Guide - S3PDM
     <!-- Disclaimer -->
     <div id="disclaimer" class="bg-red-50 border-l-4 border-red-600 p-6 rounded-lg mb-12">
       <h2 class="text-2xl font-bold mb-4 text-red-900">⚠️ Important Disclaimer</h2>
-      <p class="text-gray-700 mb-4"><strong>S3 Vault is a version control tool, not a backup system.</strong> While it maintains file history in cloud storage, it is your responsibility to maintain independent backups of critical files.</p>
+      <p class="text-gray-700 mb-4"><strong>S3 PDM Vault is a version control tool, not a backup system.</strong> While it maintains file history in cloud storage, it is your responsibility to maintain independent backups of critical files.</p>
       <ul class="list-disc list-inside space-y-2 text-gray-700 ml-2">
         <li><strong>You are responsible</strong> for backing up your files independently</li>
-        <li><strong>No warranty:</strong> S3 Vault is provided as-is with no guarantees of data integrity or recovery</li>
+        <li><strong>No warranty:</strong> S3 PDM Vault is provided as-is with no guarantees of data integrity or recovery</li>
         <li><strong>I am not liable</strong> for any lost, corrupted, or damaged files</li>
         <li><strong>Cloud storage provider issues:</strong> Problems with your S3 provider (Backblaze, AWS, etc.) are outside my control</li>
-        <li><strong>Use at your own risk:</strong> Test S3 Vault thoroughly with non-critical files before trusting it with important work</li>
+        <li><strong>Use at your own risk:</strong> Test S3 PDM Vault thoroughly with non-critical files before trusting it with important work</li>
       </ul>
-      <p class="text-gray-700 mt-4"><strong>Best practice:</strong> Use S3 Vault as a version control system alongside regular backups to external drives or other cloud services.</p>
+      <p class="text-gray-700 mt-4"><strong>Best practice:</strong> Use S3 PDM Vault as a version control system alongside regular backups to external drives or other cloud services.</p>
     </div>
 
     <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg mb-12">
-      <p class="text-gray-700"><strong>Not installed yet?</strong> Check out the <a href="/installation" class="text-blue-600 hover:underline">Installation Guide</a> to set up s3pdm first.</p>
+      <p class="text-gray-700"><strong>Not installed yet?</strong> Check out the <a href="/installation/" class="text-blue-600 hover:underline">Installation Guide</a> to set up S3 PDM Vault first.</p>
     </div>
 
     <!-- Basic Workflow -->
@@ -85,7 +86,7 @@ title: Usage Guide - S3PDM
 
         <div class="bg-slate-50 p-6 rounded-lg">
           <h3 class="text-xl font-bold mb-3">Rename or Move Files</h3>
-          <p class="text-gray-700 mb-4">Right-click a file or folder and select <strong>Rename</strong>. Enter the new path (relative to your vault). s3pdm handles:</p>
+          <p class="text-gray-700 mb-4">Right-click a file or folder and select <strong>Rename</strong>. Enter the new path (relative to your vault). S3 PDM Vault handles:</p>
           <ul class="list-disc list-inside space-y-2 text-gray-700 ml-4">
             <li>Files you already renamed in SOLIDWORKS (Pack & Go, rename operations)</li>
             <li>Files not yet moved on disk</li>
@@ -153,7 +154,7 @@ title: Usage Guide - S3PDM
         </div>
 
         <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded">
-          <p><strong>One machine at a time.</strong> s3pdm is designed for solo users working from one machine. Concurrent edits from multiple machines aren't protected.</p>
+          <p><strong>One machine at a time.</strong> S3 PDM Vault is designed for solo users working from one machine. Concurrent edits from multiple machines aren't protected.</p>
         </div>
       </div>
     </section>
@@ -165,17 +166,17 @@ title: Usage Guide - S3PDM
       <div class="space-y-6">
         <div class="bg-yellow-50 border-l-4 border-yellow-600 p-6 rounded-lg">
           <h3 class="text-xl font-bold mb-3 text-yellow-900">SOLIDWORKS Renaming</h3>
-          <p class="text-gray-700">If you rename a file in SOLIDWORKS (using Rename or Pack & Go), those rename operations don't update references in assemblies and drawings. <strong>Rename with SOLIDWORKS first, then use S3 Vault's Rename/Move to link the history.</strong> This keeps all references intact.</p>
+          <p class="text-gray-700">If you rename a file in SOLIDWORKS (using Rename or Pack & Go), those rename operations don't update references in assemblies and drawings. <strong>Rename with SOLIDWORKS first, then use S3 PDM Vault's Rename/Move to link the history.</strong> This keeps all references intact.</p>
         </div>
 
         <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg">
           <h3 class="text-xl font-bold mb-3">Single User Design</h3>
-          <p class="text-gray-700">S3 Vault is designed for one person working at one machine. <strong>No locking is implemented</strong>—if two people check in the same file at the exact same moment, version entries could be overwritten. For coordinated teams, establish a simple workflow (e.g., "take turns checking in").</p>
+          <p class="text-gray-700">S3 PDM Vault is designed for one person working at one machine. <strong>No locking is implemented</strong>—if two people check in the same file at the exact same moment, version entries could be overwritten. For coordinated teams, establish a simple workflow (e.g., "take turns checking in").</p>
         </div>
 
         <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg">
           <h3 class="text-xl font-bold mb-3">Ignored Files</h3>
-          <p class="text-gray-700">S3 Vault automatically ignores:</p>
+          <p class="text-gray-700">S3 PDM Vault automatically ignores:</p>
           <ul class="list-disc list-inside space-y-1 text-gray-700 ml-4 mt-2">
             <li>Lock files (<code class="bg-gray-200 px-1 rounded">~$</code> prefix)</li>
             <li><code class="bg-gray-200 px-1 rounded">Thumbs.db</code></li>
@@ -201,7 +202,7 @@ title: Usage Guide - S3PDM
 
         <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg">
           <h3 class="text-xl font-bold mb-3">Data Safety</h3>
-          <p class="text-gray-700">S3 Vault <strong>never deletes file contents from the cloud.</strong> Untracked files are archived in the bucket's <code class="bg-gray-200 px-1 rounded">archive/</code> folder, so you can recover anything.</p>
+          <p class="text-gray-700">S3 PDM Vault <strong>never deletes file contents from the cloud.</strong> Untracked files are archived in the bucket's <code class="bg-gray-200 px-1 rounded">archive/</code> folder, so you can recover anything.</p>
         </div>
 
         <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg">
@@ -223,12 +224,12 @@ title: Usage Guide - S3PDM
 
         <div>
           <h3 class="text-xl font-bold mb-3 text-slate-900">Large Files (>5 GB)?</h3>
-          <p class="text-gray-700">s3pdm uses multipart uploads for files larger than 5 GB. SOLIDWORKS files are well under this limit, but this software will work with other files types too. If you hit the limit, check the error log for details.</p>
+          <p class="text-gray-700">S3 PDM Vault uses multipart uploads for files larger than 5 GB. SOLIDWORKS files are well under this limit, but this software will work with other files types too. If you hit the limit, check the error log for details.</p>
         </div>
 
         <div>
           <h3 class="text-xl font-bold mb-3 text-slate-900">Restore Needs Space</h3>
-          <p class="text-gray-700">When restoring a file, s3pdm downloads it to a temporary location next to the destination. You'll need free disk space equal to the file size.</p>
+          <p class="text-gray-700">When restoring a file, S3 PDM Vault downloads it to a temporary location next to the destination. You'll need free disk space equal to the file size.</p>
         </div>
 
         <div>
@@ -241,7 +242,7 @@ title: Usage Guide - S3PDM
     <!-- CTA -->
     <div class="bg-gradient-to-r from-blue-600 to-blue-700 text-white p-8 rounded-lg text-center">
       <h2 class="text-2xl font-bold mb-4">Ready to Start?</h2>
-      <p class="mb-6">Download s3pdm from GitHub and set up your first vault today.</p>
+      <p class="mb-6">Download S3 PDM Vault from GitHub and set up your first vault today.</p>
       <a href="https://github.com/MadJalapeno/s3pdm" target="_blank" class="bg-white text-blue-600 hover:bg-slate-100 px-8 py-3 rounded-lg font-semibold transition inline-block">
         Go to GitHub
       </a>

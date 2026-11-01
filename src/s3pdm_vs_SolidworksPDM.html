@@ -1,14 +1,15 @@
 ---
 layout: base.njk
-title: S3 Vault vs SOLIDWORKS PDM Standard
+title: "S3 PDM Vault vs SOLIDWORKS PDM Standard | Comparison"
+description: "How S3 PDM Vault compares with SOLIDWORKS PDM Standard for solo users and small teams: features, setup and cost."
 ---
 
 <!-- Header -->
 <div class="bg-gradient-to-b from-slate-900 to-slate-800 text-white py-16">
   <div class="max-w-4xl mx-auto px-6">
     <a href="/" class="text-blue-400 hover:text-blue-300 mb-4 inline-block">← Back to Home</a>
-    <h1 class="text-5xl font-bold">S3 Vault vs SOLIDWORKS PDM Standard</h1>
-    <p class="text-xl text-slate-300 mt-4">Compared: S3 Vault 1.0.3 and SOLIDWORKS PDM Standard 2025/2026. September 2026.</p>
+    <h1 class="text-5xl font-bold">S3 PDM Vault vs SOLIDWORKS PDM Standard</h1>
+    <p class="text-xl text-slate-300 mt-4">Compared: S3 PDM Vault 1.0.3 and SOLIDWORKS PDM Standard 2025/2026. September 2026.</p>
   </div>
 </div>
 
@@ -22,9 +23,9 @@ title: S3 Vault vs SOLIDWORKS PDM Standard
 
       <p class="text-lg text-gray-700 mb-6"><strong>SOLIDWORKS PDM Standard</strong> is a real product data management system: reference-aware check-in and check-out inside SOLIDWORKS, a searchable database, workflows and revision control. The cost of that capability is infrastructure. It needs a Windows server running SQL Server Express on a fast local network, it's administered as a server product, and it's only included with the higher SOLIDWORKS license tiers.</p>
 
-      <p class="text-lg text-gray-700 mb-6"><strong>S3 Vault</strong> is a small, deliberately simple tool for one person, or a few who coordinate, who want the core benefit of a PDM: a safe, versioned, commented history of every file, stored off the machine. It needs no server at all. Storage is a cloud bucket or a folder, and the app runs on Windows and macOS.</p>
+      <p class="text-lg text-gray-700 mb-6"><strong>S3 PDM Vault</strong> is a small, deliberately simple tool for one person, or a few who coordinate, who want the core benefit of a PDM: a safe, versioned, commented history of every file, stored off the machine. It needs no server at all. Storage is a cloud bucket or a folder, and the app runs on Windows and macOS.</p>
 
-      <p class="text-lg text-gray-700">In short: PDM Standard manages <em>SOLIDWORKS data</em>. S3 Vault manages <em>files</em>. For a solo designer whose main need is "never lose work, know what changed, get any version back," S3 Vault covers that without a server. Once a team needs reference-aware check-in, approvals or controlled revisions, PDM Standard (or PDM Professional) is the right tool.</p>
+      <p class="text-lg text-gray-700">In short: PDM Standard manages <em>SOLIDWORKS data</em>. S3 PDM Vault manages <em>files</em>. For a solo designer whose main need is "never lose work, know what changed, get any version back," S3 PDM Vault covers that without a server. Once a team needs reference-aware check-in, approvals or controlled revisions, PDM Standard (or PDM Professional) is the right tool.</p>
     </section>
 
     <!-- At a Glance Table -->
@@ -36,7 +37,7 @@ title: S3 Vault vs SOLIDWORKS PDM Standard
           <thead>
             <tr class="bg-slate-100 border-b-2 border-slate-300">
               <th class="px-4 py-3 text-left font-bold text-slate-900">Feature</th>
-              <th class="px-4 py-3 text-left font-bold text-slate-900">S3 Vault</th>
+              <th class="px-4 py-3 text-left font-bold text-slate-900">S3 PDM Vault</th>
               <th class="px-4 py-3 text-left font-bold text-slate-900">SOLIDWORKS PDM Standard</th>
             </tr>
           </thead>
@@ -137,7 +138,7 @@ title: S3 Vault vs SOLIDWORKS PDM Standard
 
       <p class="text-gray-700"><strong>Version lock-step:</strong> PDM Standard is only supported with the same SOLIDWORKS release, so the server has to be upgraded alongside SOLIDWORKS every year.</p>
 
-      <h3 class="text-2xl font-bold mb-6 mt-12 text-slate-900">S3 Vault</h3>
+      <h3 class="text-2xl font-bold mb-6 mt-12 text-slate-900">S3 PDM Vault</h3>
       <ul class="space-y-3 ml-6 list-disc text-gray-700">
         <li><strong>No server, no database, nothing to patch or upgrade.</strong></li>
         <li>Storage is either an S3 bucket (Backblaze B2, Wasabi, AWS, or a self-hosted Garage or MinIO cluster) or any folder: a network drive, NAS, USB drive, or a folder synced by Sync.com, Box Drive or OneDrive.</li>
@@ -156,7 +157,7 @@ title: S3 Vault vs SOLIDWORKS PDM Standard
           <thead>
             <tr class="bg-slate-100 border-b-2 border-slate-300">
               <th class="px-4 py-3 text-left font-bold text-slate-900">Capability</th>
-              <th class="px-4 py-3 text-left font-bold text-slate-900">S3 Vault</th>
+              <th class="px-4 py-3 text-left font-bold text-slate-900">S3 PDM Vault</th>
               <th class="px-4 py-3 text-left font-bold text-slate-900">PDM Standard</th>
             </tr>
           </thead>
@@ -303,9 +304,9 @@ title: S3 Vault vs SOLIDWORKS PDM Standard
       </div>
     </section>
 
-    <!-- Where S3 Vault is Better -->
+    <!-- Where S3 PDM Vault is Better -->
     <section class="mb-16">
-      <h2 class="text-3xl font-bold mb-8 text-slate-900">Where S3 Vault is Better for Solo Work</h2>
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">Where S3 PDM Vault is Better for Solo Work</h2>
 
       <div class="space-y-4">
         <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-600">
@@ -345,9 +346,9 @@ title: S3 Vault vs SOLIDWORKS PDM Standard
       </div>
     </section>
 
-    <!-- S3 Vault Limitations -->
+    <!-- S3 PDM Vault Limitations -->
     <section class="mb-16">
-      <h2 class="text-3xl font-bold mb-8 text-slate-900">S3 Vault Limitations to Be Aware Of</h2>
+      <h2 class="text-3xl font-bold mb-8 text-slate-900">S3 PDM Vault Limitations to Be Aware Of</h2>
 
       <ul class="space-y-3 ml-6 list-disc text-gray-700">
         <li>No locking. It's designed for one user at a time.</li>
@@ -366,7 +367,7 @@ title: S3 Vault vs SOLIDWORKS PDM Standard
 
       <div class="space-y-6">
         <div class="bg-slate-50 p-6 rounded-lg">
-          <h3 class="text-xl font-bold text-slate-900 mb-3">Choose S3 Vault</h3>
+          <h3 class="text-xl font-bold text-slate-900 mb-3">Choose S3 PDM Vault</h3>
           <p class="text-gray-700">if you work alone or with one or two collaborators who coordinate, don't want to run a server, want off-site history by default, work on both Windows and macOS or away from the office, or have a SOLIDWORKS license that doesn't include PDM Standard.</p>
         </div>
 

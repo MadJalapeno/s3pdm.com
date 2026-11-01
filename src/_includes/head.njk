@@ -2,26 +2,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-    <meta name="description" content="Free and open source personal PDM for SOLIDWORKS. Version control, file history, and folder management backed by affordable cloud storage. No software fees.">
+    <meta name="description" content="{{ description or 'Free and open source personal PDM for SOLIDWORKS. Version control, file history, and folder management backed by affordable cloud storage. No software fees.' }}">
     <meta name="keywords" content="PDM, SOLIDWORKS, file versioning, document management, cloud storage, s3, free software">
     <meta name="author" content="jalapeno.design">
-    <meta name="robots" content="index, follow">
+    {% if noindex %}<meta name="robots" content="noindex, follow">{% else %}<meta name="robots" content="index, follow">{% endif %}
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://s3pdm.com{% if page.url != '/' %}{{ page.url }}{% endif %}">
+    <link rel="canonical" href="https://s3pdm.com{{ page.url }}">
 
     <!-- OpenGraph Tags -->
     <meta property="og:title" content="{{ title }}">
-    <meta property="og:description" content="Personal PDM for solo SOLIDWORKS users on Mac and PC. Free and open source version control backed by affordable cloud storage. No software fees.">
+    <meta property="og:description" content="{{ description or 'Personal PDM for solo SOLIDWORKS users on Mac and PC. Free and open source version control backed by affordable cloud storage. No software fees.' }}">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://s3pdm.com{% if page.url != '/' %}{{ page.url }}{% endif %}">
+    <meta property="og:url" content="https://s3pdm.com{{ page.url }}">
     <meta property="og:image" content="https://s3pdm.com/assets/images/og-image.png">
-    <meta property="og:image:alt" content="s3pdm - Personal PDM for SOLIDWORKS">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="S3 PDM Vault - Personal PDM for SOLIDWORKS">
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ title }}">
-    <meta name="twitter:description" content="Free personal PDM for SOLIDWORKS. No software fees, just cloud storage.">
+    <meta name="twitter:description" content="{{ description or 'Free personal PDM for SOLIDWORKS. No software fees, just cloud storage.' }}">
     <meta name="twitter:image" content="https://s3pdm.com/assets/images/og-image.png">
 
     <!-- Favicon and Manifest -->
@@ -32,7 +34,9 @@
 
     <link rel="stylesheet" href="/assets/css/tailwind.css" />
 
+{% if not noindex %}
 {% include "structured-data.njk" %}
+{% endif %}
 
 <!-- Analytics - Production only -->
 {% if env.environment != "dev" %}

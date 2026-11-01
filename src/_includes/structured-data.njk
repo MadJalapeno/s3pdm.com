@@ -3,7 +3,8 @@
 {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "s3pdm",
+  "name": "S3 PDM Vault",
+  "alternateName": "s3pdm",
   "description": "Free and open source personal PDM system for SOLIDWORKS. Version control and file history backed by cloud storage.",
   "url": "https://s3pdm.com",
   "applicationCategory": "ProductivityApplication",
@@ -12,19 +13,12 @@
     "price": "0",
     "priceCurrency": "USD"
   },
-  "operatingSystem": "Windows",
+  "operatingSystem": "Windows, macOS",
   "downloadUrl": "https://github.com/MadJalapeno/s3pdm/releases",
   "softwareVersion": "1.0",
   "license": "MIT",
-  "author": {
-    "@type": "Organization",
-    "name": "jalapeno.design",
-    "url": "https://jalapeno.design"
-  },
-  "creator": {
-    "@type": "Organization",
-    "name": "jalapeno.design"
-  }
+  "author": { "@id": "https://jalapeno.design/#organization" },
+  "creator": { "@id": "https://jalapeno.design/#organization" }
 }
 </script>
 
@@ -32,10 +26,11 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "s3pdm",
+  "name": "S3 PDM Vault",
   "url": "https://s3pdm.com",
   "description": "Personal PDM for solo SOLIDWORKS users. Free and open source version control backed by affordable cloud storage.",
   "foundingDate": "2024",
+  "parentOrganization": { "@id": "https://jalapeno.design/#organization" },
   "sameAs": [
     "https://github.com/MadJalapeno/s3pdm",
     "https://jalapeno.design"
@@ -55,26 +50,26 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "What is s3pdm?",
+      "name": "What is S3 PDM Vault?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "s3pdm is a free, open source personal PDM (Product Data Management) system for SOLIDWORKS users. It provides version control, file history, and folder management using affordable cloud storage instead of expensive PDM licensing."
+        "text": "S3 PDM Vault is a free, open source personal PDM (Product Data Management) system for SOLIDWORKS users. It provides version control, file history, and folder management using affordable cloud storage instead of expensive PDM licensing."
       }
     },
     {
       "@type": "Question",
-      "name": "Is s3pdm free?",
+      "name": "Is S3 PDM Vault free?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, s3pdm is completely free and open source. There are no software licenses, subscription fees, or hidden costs. You only pay for cloud storage if you use it."
+        "text": "Yes, S3 PDM Vault is completely free and open source. There are no software licenses, subscription fees, or hidden costs. You only pay for cloud storage if you use it."
       }
     },
     {
       "@type": "Question",
-      "name": "What cloud storage providers does s3pdm support?",
+      "name": "What cloud storage providers does S3 PDM Vault support?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "s3pdm works with any S3-compatible cloud storage provider: Backblaze B2 ($0.006/GB/month), AWS S3 ($0.023/GB/month), MinIO, DigitalOcean Spaces, and others. No vendor lock-in—switch providers anytime and keep all your files."
+        "text": "S3 PDM Vault works with any S3-compatible cloud storage provider: Backblaze B2 ($0.006/GB/month), AWS S3 ($0.023/GB/month), MinIO, DigitalOcean Spaces, and others. No vendor lock-in—switch providers anytime and keep all your files."
       }
     },
     {
@@ -82,7 +77,7 @@
       "name": "Can I rename or move files while preserving history?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, s3pdm supports renaming and moving files and folders while preserving full version history. It works seamlessly with SOLIDWORKS rename operations and Pack & Go."
+        "text": "Yes, S3 PDM Vault supports renaming and moving files and folders while preserving full version history. It works seamlessly with SOLIDWORKS rename operations and Pack & Go."
       }
     },
     {
@@ -90,7 +85,7 @@
       "name": "What's the maximum file size?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "s3pdm supports files up to 5 TB through S3 APIs. In practice, SOLIDWORKS files rarely exceed 25 MB, so this limit is not a concern for typical design work."
+        "text": "S3 PDM Vault supports files up to 5 TB through S3 APIs. In practice, SOLIDWORKS files rarely exceed 25 MB, so this limit is not a concern for typical design work."
       }
     }
   ]

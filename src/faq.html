@@ -1,6 +1,7 @@
 ---
 layout: base.njk
-title: FAQ - S3PDM
+title: "S3 PDM Vault FAQ | Personal PDM for SOLIDWORKS"
+description: "Answers about S3 PDM Vault: what PDM is, how it compares to Git, which S3 storage providers work, renaming files with history intact, and what it costs."
 ---
 
 <!-- Header -->
@@ -36,8 +37,8 @@ title: FAQ - S3PDM
         </div>
 
         <div class="bg-green-50 p-6 rounded-lg">
-          <h4 class="font-bold text-gray-900 mb-2">What s3pdm does (free)</h4>
-          <p class="text-gray-700">s3pdm is a lightweight personal PDM for solo SOLIDWORKS users. It gives you the core PDM features that actually matter for one person:</p>
+          <h4 class="font-bold text-gray-900 mb-2">What S3 PDM Vault does (free)</h4>
+          <p class="text-gray-700">S3 PDM Vault is a lightweight personal PDM for solo SOLIDWORKS users. It gives you the core PDM features that actually matter for one person:</p>
           <ul class="list-disc list-inside space-y-1 text-gray-700 mt-2 ml-4">
             <li>Version control—every file has complete history</li>
             <li>Check-in with comments—document why you made changes</li>
@@ -50,12 +51,12 @@ title: FAQ - S3PDM
       </div>
     </section>
 
-    <!-- Git vs S3PDM -->
+    <!-- Git vs S3 PDM Vault -->
     <section class="mb-16">
       <h2 class="text-3xl font-bold mb-8 text-slate-900">How does this compare to Git?</h2>
 
       <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded mb-8">
-        <p class="text-gray-700">Git and s3pdm overlap, but they're built around different ideas. For SOLIDWORKS files, the differences matter more than they first appear.</p>
+        <p class="text-gray-700">Git and S3 PDM Vault overlap, but they're built around different ideas. For SOLIDWORKS files, the differences matter more than they first appear.</p>
       </div>
 
       <!-- Where Git is Better -->
@@ -65,22 +66,22 @@ title: FAQ - S3PDM
         <div class="space-y-4">
           <div class="bg-slate-50 p-6 rounded-lg">
             <h4 class="font-bold text-gray-900 mb-2">Project-wide snapshots</h4>
-            <p class="text-gray-700">Every Git commit captures the whole project exactly as it was, so <code class="bg-gray-200 px-2 py-1 rounded">git checkout &lt;commit&gt;</code> puts every part, assembly, and drawing back to a consistent state. s3pdm records which versions went together in each check-in, but you'd restore them file by file.</p>
+            <p class="text-gray-700">Every Git commit captures the whole project exactly as it was, so <code class="bg-gray-200 px-2 py-1 rounded">git checkout &lt;commit&gt;</code> puts every part, assembly, and drawing back to a consistent state. S3 PDM Vault records which versions went together in each check-in, but you'd restore them file by file.</p>
           </div>
 
           <div class="bg-slate-50 p-6 rounded-lg">
             <h4 class="font-bold text-gray-900 mb-2">Branches and tags</h4>
-            <p class="text-gray-700">You can explore a design variant on a branch or tag exactly what you sent a client. s3pdm has neither.</p>
+            <p class="text-gray-700">You can explore a design variant on a branch or tag exactly what you sent a client. S3 PDM Vault has neither.</p>
           </div>
 
           <div class="bg-slate-50 p-6 rounded-lg">
             <h4 class="font-bold text-gray-900 mb-2">Maturity</h4>
-            <p class="text-gray-700">Git is used by millions of people and extremely well tested. s3pdm is a few hundred lines that only you maintain, so a bug in it is your problem.</p>
+            <p class="text-gray-700">Git is used by millions of people and extremely well tested. S3 PDM Vault is a few hundred lines that only you maintain, so a bug in it is your problem.</p>
           </div>
 
           <div class="bg-slate-50 p-6 rounded-lg">
             <h4 class="font-bold text-gray-900 mb-2">Offline commits</h4>
-            <p class="text-gray-700">You commit locally and push later. s3pdm needs a connection to check in.</p>
+            <p class="text-gray-700">You commit locally and push later. S3 PDM Vault needs a connection to check in.</p>
           </div>
         </div>
       </div>
@@ -112,9 +113,9 @@ title: FAQ - S3PDM
         </div>
       </div>
 
-      <!-- What S3PDM Does Differently -->
+      <!-- What S3 PDM Vault Does Differently -->
       <div class="mb-12">
-        <h3 class="text-2xl font-bold mb-6 text-slate-900">What s3pdm Does Differently</h3>
+        <h3 class="text-2xl font-bold mb-6 text-slate-900">What S3 PDM Vault Does Differently</h3>
 
         <div class="space-y-4">
           <div class="bg-green-50 p-6 rounded-lg">
@@ -161,15 +162,15 @@ title: FAQ - S3PDM
             <p class="text-gray-700">Aimed at data science, but it works for any large files. It's easier than git-annex, though still command-line oriented.</p>
           </div>
 
-          <p class="text-gray-700 mt-6">Either would give you Git's snapshots and branches without the storage bloat, at the cost of more complexity than s3pdm.</p>
+          <p class="text-gray-700 mt-6">Either would give you Git's snapshots and branches without the storage bloat, at the cost of more complexity than S3 PDM Vault.</p>
         </div>
       </div>
 
       <!-- Bottom Line -->
       <div class="bg-yellow-50 border-l-4 border-yellow-600 p-8 rounded-lg">
         <h3 class="text-2xl font-bold mb-4 text-yellow-900">The Bottom Line</h3>
-        <p class="text-gray-700 mb-4">For solo SOLIDWORKS work where you want per-file versions, a simple GUI, and history kept off your PC, s3pdm is the better fit.</p>
-        <p class="text-gray-700 mb-4">Git becomes the better choice if you find yourself wanting branches, or wanting to roll a whole project back to a known state. If it's mainly that second one, a "Restore this check-in" feature would be a small addition to s3pdm that would close most of that gap.</p>
+        <p class="text-gray-700 mb-4">For solo SOLIDWORKS work where you want per-file versions, a simple GUI, and history kept off your PC, S3 PDM Vault is the better fit.</p>
+        <p class="text-gray-700 mb-4">Git becomes the better choice if you find yourself wanting branches, or wanting to roll a whole project back to a known state. If it's mainly that second one, a "Restore this check-in" feature would be a small addition to S3 PDM Vault that would close most of that gap.</p>
       </div>
     </section>
 

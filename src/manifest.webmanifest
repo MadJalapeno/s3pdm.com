@@ -1,6 +1,6 @@
 {
-  "name": "s3pdm - Personal PDM for SOLIDWORKS",
-  "short_name": "s3pdm",
+  "name": "S3 PDM Vault - Personal PDM for SOLIDWORKS",
+  "short_name": "S3 PDM Vault",
   "description": "Free and open source personal PDM for SOLIDWORKS. Version control, file history, and folder management backed by affordable cloud storage.",
   "start_url": "/",
   "scope": "/",

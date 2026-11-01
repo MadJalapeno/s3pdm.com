@@ -7,6 +7,7 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("src/assets/images/");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
+  eleventyConfig.addPassthroughCopy("src/_headers");
   eleventyConfig.addPassthroughCopy("src/manifest.webmanifest");
 
   eleventyConfig.addWatchTarget("src");
